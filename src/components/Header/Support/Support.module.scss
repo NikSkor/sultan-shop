@@ -1,0 +1,45 @@
+.supportBlock {
+  display: flex;
+  gap: 14px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.tel {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 150%;
+  color: #111111;
+}
+
+.workTime {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 150%;
+  color: #3F4E65;
+}
+
+.callBack {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 150%;
+  text-decoration-line: underline;
+  color: #3F4E65;
+}
+
+.imgContainer {
+  width: 70px;
+  height: 59px;
+  position: relative;
+}
+
+.img {
+  position: absolute;
+  max-height: 92px;
+  bottom: -8px;
+}

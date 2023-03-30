@@ -1,0 +1,70 @@
+.upline {
+  border-bottom: 1px solid rgba(63, 78, 101, .2);
+}
+
+.uplineBody {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.contacts {
+  display: flex;
+  gap: 40px;
+}
+
+.block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: #111111;
+}
+
+.description {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 130.02%;
+  color: #3F4E65;
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+}
+
+.downline {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(63, 78, 101, .2);
+}
+
+.downlineBody {
+  display: flex;
+  justify-content: space-between;
+  // flex-wrap: nowrap;
+}
+
+.goods {
+  display: flex;
+  gap: 15px;
+}
+
+.userService {
+  display: flex;
+  gap: 50px;
+}

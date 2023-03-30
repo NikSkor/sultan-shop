@@ -1,0 +1,30 @@
+.cartBlock {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.imgContainer {
+  width: 46px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 150%;
+  color: #3F4E65;
+}
+
+.cost {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 150%;
+  color: #111111;
+  display: flex;
+  gap: 4px;
+}
