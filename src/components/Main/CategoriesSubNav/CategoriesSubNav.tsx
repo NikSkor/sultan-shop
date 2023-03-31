@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import style from './CategoriesNav.module.scss';
+import style from './CategoriesSubNav.module.scss';
 
 interface ICatNav {
   title: string,
@@ -11,7 +11,7 @@ interface ICategories {
 }
 
 
-const CategoriesNav: FC<ICategories> = ({options}) => {
+const CategoriesSubNav: FC<ICategories> = ({options}) => {
   return (
     <ul className={style.categoriesList}>
       {options.map(elem => {
@@ -25,4 +25,4 @@ const CategoriesNav: FC<ICategories> = ({options}) => {
   )
 }
 
-export default CategoriesNav;
+export default CategoriesSubNav;

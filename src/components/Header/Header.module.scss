@@ -31,12 +31,15 @@
 .downlineBody {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   // flex-wrap: nowrap;
 }
 
 .goods {
   display: flex;
   gap: 15px;
+  // width: 480px;
+
 }
 
 .userService {

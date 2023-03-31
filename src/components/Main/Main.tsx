@@ -1,10 +1,15 @@
 import React from 'react'
+import catalog from '../../catalog.json';
 import CategoriesNav from './CategoriesNav/CategoriesNav';
+import CategoriesSubNav from './CategoriesSubNav/CategoriesSubNav';
 import style from './Main.module.scss';
 import Selector from './Selector/Selector';
+import SortForm from './SortForm/SortForm';
 
 export default function Main() {
 
+  const infoCatalog = [...catalog];
+  console.log('infoCatalog: ', infoCatalog);
   interface ISelectors {
     title: string,
     value: string
@@ -12,7 +17,7 @@ export default function Main() {
 
   interface ICatNav {
   title: string,
-  id: number
+  id: string
 }
 
   const selectors: ISelectors[]  = [
@@ -37,47 +42,47 @@ export default function Main() {
   const categories: ICatNav[]= [
     {
       title: 'Уход за телом',
-      id: 1
+      id: 'body'
     },
     {
       title: 'Уход за руками',
-      id: 2
+      id: 'hands'
     },
     {
       title: 'Уход за ногами',
-      id: 3
+      id: 'feets'
     },
     {
       title: 'Уход за лицом',
-      id: 4
+      id: 'face'
     },
     {
       title: 'Уход за волосами',
-      id: 5
+      id: 'hair'
     },
     {
       title: 'Средства для загара',
-      id: 6
+      id: 'sun'
     },
     {
       title: 'Средства для бритья',
-      id: 7
+      id: 'shave'
     },
     {
       title: 'Подарочные наборы',
-      id: 8
+      id: 'gift'
     },
     {
       title: 'Гигиеническая продукция',
-      id: 9
+      id: 'intimate'
     },
     {
       title: 'Гигиена полости рта',
-      id: 10
+      id: 'mouth'
     },
     {
       title: 'Бумажная продукция',
-      id: 11
+      id: 'paper'
     }
   ];
 
@@ -94,7 +99,15 @@ export default function Main() {
         <Selector title='Сортировка:' options={selectors} />
       </div>
       <CategoriesNav options={categories}/>
-      
+      <div className={style.contentBlock}>
+        <div className={style.sort}>
+          <SortForm/>
+          <CategoriesSubNav options={categories}/>
+        </div>
+        <div className={style.goods}>
+          
+        </div>
+      </div>
       </div>
     </div>
   )

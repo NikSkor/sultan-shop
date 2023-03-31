@@ -33,4 +33,15 @@
   color: #111111;
 }
 
+.contentBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.sort {
+  flex-basis: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
 
