@@ -14,32 +14,7 @@
 .contacts {
   display: flex;
   gap: 40px;
-}
-
-.block {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 15px;
-}
-
-.info {
-  display: flex;
-  flex-direction: column;
-}
-
-.title {
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 18px;
   color: #111111;
-}
-
-.description {
-  font-weight: 300;
-  font-size: 12px;
-  line-height: 130.02%;
-  color: #3F4E65;
 }
 
 .icon {
@@ -67,4 +42,17 @@
 .userService {
   display: flex;
   gap: 50px;
+  color: #3F4E65;
+}
+
+.imgContainer {
+  width: 70px;
+  height: 59px;
+  position: relative;
+}
+
+.img {
+  position: absolute;
+  max-height: 92px;
+  bottom: -8px;
 }

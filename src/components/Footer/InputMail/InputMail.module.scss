@@ -1,0 +1,26 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 10px 13px 20px;
+  gap: 10px;
+  background-color: #FFFFFF;
+  border-radius: 36px;
+  width: 282px;
+  height: 59px;
+}
+
+.searchInput {
+  border: none;
+  background-color: #FFFFFF;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #5C6370;
+  opacity: 0.6;
+}
+
+.btn {
+  cursor: pointer;
+}
