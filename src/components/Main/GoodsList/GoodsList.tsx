@@ -18,7 +18,6 @@ interface ICatalog {
 }
 
 const GoodsList: FC<ICat> = ({options}) => {
-  console.log(options.length);
 
   if (options.length!== 0) {
     return (

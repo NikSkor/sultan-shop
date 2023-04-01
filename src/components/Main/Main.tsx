@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import CategoriesNav from './CategoriesNav/CategoriesNav';
 import CategoriesSubNav from './CategoriesSubNav/CategoriesSubNav';
 import GoodsList from './GoodsList/GoodsList';
@@ -9,9 +8,36 @@ import catalog from '../../catalog.json';
 import Pagination from './Pagination/Pagination';
 import { useAppSelector } from '../../hooks/redux';
 
+interface ICatalog {
+  [index: string]: string | number | string[],
+  url: string,
+  name: string,
+  sizeType: string,
+  size: number,
+  barcode: number,
+  manufacturer: string,
+  brand: string,
+  description: string,
+  price: number,
+  type: string[]
+}
+
+interface ISelectors {
+  title: string,
+  value: string
+}
+
+interface ICatNav {
+  title: string,
+  id: string
+}
+
 export default function Main() {
   const pageNumber = useAppSelector(state => state.userReducer.page);
   const type = useAppSelector(state => state.userReducer.type);
+  const sortName = useAppSelector(state => state.userReducer.sort);
+
+  console.log(sortName);
 
   const filterCatalog = (catalog: ICatalog[]) => {
 
@@ -28,6 +54,28 @@ export default function Main() {
   }
 
   let goodsCatalog: ICatalog[] = filterCatalog(catalog);
+
+  let sortCatalog = (catalog: ICatalog[], name: string) => {
+  // let resultCatalog: ICatalog[] = [];
+
+  if(name === 'name' || name === 'brand') {
+    const key = name;
+    catalog = catalog.sort((item1, item2) => item1[key] > item2[key] ? 1 : -1);
+  }
+
+  if(name === 'toUp') {
+    const key = 'price';
+    catalog = catalog.sort((item1, item2) => item1[key] > item2[key] ? 1 : -1);
+  }
+
+  if(name === 'toDown') {
+    const key = 'price';
+    catalog = catalog.sort((item1, item2) => item1[key] < item2[key] ? 1 : -1);
+  }
+    return catalog;
+}
+
+  goodsCatalog = sortCatalog(goodsCatalog, sortName);
 
 
   let paginSize: number = 9;
@@ -51,7 +99,27 @@ export default function Main() {
     return resultCatalog;
   }
 
-  let finalCatalog: ICatalog[] = paginateCatalog(goodsCatalog, paginSize, pageNumber);
+  goodsCatalog = paginateCatalog(goodsCatalog, paginSize, pageNumber);
+
+
+
+    
+
+    // if(name === 'name') {
+    //   const key = 'name';
+    //   catalog = catalog.sort((item1, item2) => item1[key] > item2[key] ? 1 : -1);
+    // }
+    // if(name === 'brand') {
+    //   const key = 'brand';
+    //   catalog = catalog.sort((item1, item2) => item1[key] > item2[key] ? 1 : -1);
+    // }
+    // if(name === 'toUp') {
+
+    // }
+
+
+
+
 
   const updatePage = () => {
     window.scrollTo({
@@ -60,44 +128,23 @@ export default function Main() {
       behavior: 'smooth',
     });
   };
-  interface ICatalog {
-  url: string,
-  name: string,
-  sizeType: string,
-  size: number,
-  barcode: number,
-  manufacturer: string,
-  brand: string,
-  description: string,
-  price: number,
-  type: string[]
-}
 
-  interface ISelectors {
-    title: string,
-    value: string
-  }
-
-  interface ICatNav {
-  title: string,
-  id: string
-}
 
   const selectors: ISelectors[]  = [
+    {
+      title: 'brand',
+      value: 'Брэнд'
+    },
     {
       title: 'name',
       value: 'Название'
     },
     {
-      title: 'price',
-      value: 'Цена'
-    },
-    {
-      title: 'toLow',
+      title: 'toDown',
       value: 'По убыванию'
     },
     {
-      title: 'toGrow',
+      title: 'toUp',
       value: 'По возрастанию'
     }
   ];
@@ -168,7 +215,7 @@ export default function Main() {
           <CategoriesSubNav options={categories}/>
         </div>
         <div className={style.goods}>
-          <GoodsList options={finalCatalog}/>
+          <GoodsList options={goodsCatalog}/>
           <Pagination pagesSum={pages} pageActive={pageNumber} getPage={updatePage}/>
         </div>
       </div>
