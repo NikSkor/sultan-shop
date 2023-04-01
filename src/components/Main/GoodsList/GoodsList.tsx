@@ -1,30 +1,30 @@
 import React, { FC } from 'react';
+import GoodCard from './GoodCard/GoodCard';
 import style from './GoodsList.module.scss';
-
-interface ISelectors {
-  title: string,
-  value: string
+interface ICat {
+  options: ICatalog[]
+}
+interface ICatalog {
+  url: string,
+  name: string,
+  sizeType: string,
+  size: number,
+  barcode: number,
+  manufacturer: string,
+  brand: string,
+  description: string,
+  price: number,
+  type: string[]
 }
 
-interface ISelect {
-  title: string,
-  options: ISelectors[],
-}
+const GoodsList: FC<ICat> = ({options}) => {
 
-
-const GoodsList: FC<ISelect> = ({title, options}) => {
   return (
     <ul className={style.list}>
-      
+      {options.map((item) => {
+        return <GoodCard key={item.barcode} option = {item} />
+      })}
     </ul>
-    // <div className={style.selectorBlock}>
-    //   <div className={style.selectorTitle}>{title}</div>
-    //   <select className={style.selector} defaultChecked={true}>
-    //     {options.map((option) => {
-    //       return <option key = {option.title} value={option.title} className={style.option}>{option.value}</option>
-    //     })}
-    //   </select>
-    // </div>
   )
 }
 

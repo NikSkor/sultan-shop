@@ -1,15 +1,30 @@
 import React from 'react'
-import catalog from '../../catalog.json';
 import CategoriesNav from './CategoriesNav/CategoriesNav';
 import CategoriesSubNav from './CategoriesSubNav/CategoriesSubNav';
+import GoodsList from './GoodsList/GoodsList';
 import style from './Main.module.scss';
 import Selector from './Selector/Selector';
 import SortForm from './SortForm/SortForm';
+import catalog from '../../catalog.json';
 
 export default function Main() {
 
-  const infoCatalog = [...catalog];
-  console.log('infoCatalog: ', infoCatalog);
+  interface ICatalog {
+  url: string,
+  name: string,
+  sizeType: string,
+  size: number,
+  barcode: number,
+  manufacturer: string,
+  brand: string,
+  description: string,
+  price: number,
+  type: string[]
+}
+
+  // let infoCatalog: ICatalog[] = JSON.parse(catalog).map(Object.values);
+  // console.log('infoCatalog: ', infoCatalog);
+
   interface ISelectors {
     title: string,
     value: string
@@ -105,7 +120,7 @@ export default function Main() {
           <CategoriesSubNav options={categories}/>
         </div>
         <div className={style.goods}>
-          
+          <GoodsList options={catalog}/>
         </div>
       </div>
       </div>
