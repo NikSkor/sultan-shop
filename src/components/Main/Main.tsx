@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CategoriesNav from './CategoriesNav/CategoriesNav';
 import CategoriesSubNav from './CategoriesSubNav/CategoriesSubNav';
 import GoodsList from './GoodsList/GoodsList';
@@ -6,17 +6,19 @@ import style from './Main.module.scss';
 import Selector from './Selector/Selector';
 import SortForm from './SortForm/SortForm';
 import catalog from '../../catalog.json';
+import Pagination from './Pagination/Pagination';
 
 export default function Main() {
 
-  let pages: number;
+  let [pageNumber, setPageNumber] = useState<number>(2);
+
   let paginSize: number = 15;
-  let pageNumber: number = 1;
+  let pages: number = Math.ceil(catalog.length / paginSize);
+ 
+  // let pageNumber: number = 1;
   let resultCatalog: ICatalog[] = [];
 
   if (catalog.length > paginSize) {
-    pages = Math.ceil(catalog.length / paginSize);
-    console.log(pages);
     for (let i = 0;  i < catalog.length; i++) {
 
       if(paginSize*(pageNumber) <= catalog.length) {
@@ -25,13 +27,18 @@ export default function Main() {
         if (i+1+(pageNumber-1)*paginSize > (paginSize*(pageNumber-1) + (catalog.length - (pageNumber-1)*paginSize)) ) break;
       }
 
-      
-
       resultCatalog.push(catalog[i+(pageNumber-1)*paginSize]);
     }
   }
-  console.log(resultCatalog);
 
+  const updatePageNumber = (newPage: number) => {
+    setPageNumber(newPage);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  };
   interface ICatalog {
   url: string,
   name: string,
@@ -141,6 +148,7 @@ export default function Main() {
         </div>
         <div className={style.goods}>
           <GoodsList options={resultCatalog}/>
+          <Pagination pagesSum={pages} pageActive={pageNumber} getPage={updatePageNumber}/>
         </div>
       </div>
       </div>
