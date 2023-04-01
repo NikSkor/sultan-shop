@@ -7,20 +7,39 @@ import Selector from './Selector/Selector';
 import SortForm from './SortForm/SortForm';
 import catalog from '../../catalog.json';
 import Pagination from './Pagination/Pagination';
+import { useAppSelector } from '../../hooks/redux';
 
 export default function Main() {
+  const pageNumber = useAppSelector(state => state.userReducer.page);
+  const type = useAppSelector(state => state.userReducer.type);
 
-  let [pageNumber, setPageNumber] = useState<number>(2);
+  const filterCatalog = (catalog: ICatalog[]) => {
 
-  let paginSize: number = 15;
-  let pages: number = Math.ceil(catalog.length / paginSize);
- 
-  // let pageNumber: number = 1;
-  let resultCatalog: ICatalog[] = [];
+    if (type ==='') return catalog;
+    let newCatalog: ICatalog[] = [];
 
-  if (catalog.length > paginSize) {
+    catalog.forEach((item) => {
+      if(item.type.includes(type)) {
+        newCatalog.push(item);
+      }
+    });
+
+    return newCatalog;
+  }
+
+  let goodsCatalog: ICatalog[] = filterCatalog(catalog);
+
+
+  let paginSize: number = 9;
+  let pages: number = 0;
+
+
+  const paginateCatalog = (catalog: ICatalog[], paginSize: number, pageNumber: number)=> {
+
+    let resultCatalog: ICatalog[] = [];
+    pages = Math.ceil(catalog.length / paginSize);
+
     for (let i = 0;  i < catalog.length; i++) {
-
       if(paginSize*(pageNumber) <= catalog.length) {
         if (i+1+(pageNumber-1)*paginSize > paginSize*pageNumber) break;
       } else {
@@ -28,11 +47,13 @@ export default function Main() {
       }
 
       resultCatalog.push(catalog[i+(pageNumber-1)*paginSize]);
-    }
+  }
+    return resultCatalog;
   }
 
-  const updatePageNumber = (newPage: number) => {
-    setPageNumber(newPage);
+  let finalCatalog: ICatalog[] = paginateCatalog(goodsCatalog, paginSize, pageNumber);
+
+  const updatePage = () => {
     window.scrollTo({
       top: 0,
       left: 0,
@@ -92,7 +113,7 @@ export default function Main() {
     },
     {
       title: 'Уход за ногами',
-      id: 'feets'
+      id: 'foots'
     },
     {
       title: 'Уход за лицом',
@@ -147,8 +168,8 @@ export default function Main() {
           <CategoriesSubNav options={categories}/>
         </div>
         <div className={style.goods}>
-          <GoodsList options={resultCatalog}/>
-          <Pagination pagesSum={pages} pageActive={pageNumber} getPage={updatePageNumber}/>
+          <GoodsList options={finalCatalog}/>
+          <Pagination pagesSum={pages} pageActive={pageNumber} getPage={updatePage}/>
         </div>
       </div>
       </div>

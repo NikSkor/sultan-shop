@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import style from './Pagination.module.scss';
 import ArrowLeft from '../../../img/arrow-left.svg';
 import ArrowRight from '../../../img/arrow-right.svg';
+import { userSlice } from '../../../store/reducers/UserSlice';
+import { useAppDispatch } from '../../../hooks/redux';
 
 
 interface IPageNumbers {
@@ -12,6 +14,9 @@ interface IPageNumbers {
 
 
 const Pagination: FC<IPageNumbers> = ({pagesSum, pageActive, getPage}) => {
+  
+  const {newPage} = userSlice.actions;
+  const dispatch = useAppDispatch();
 
   let arrCreate = (pages: number) => {
   let res: number[] = [1];
@@ -23,27 +28,32 @@ const Pagination: FC<IPageNumbers> = ({pagesSum, pageActive, getPage}) => {
   }
 
   return res;
-}
-
-let pageNumLeftHandler = (e : React.MouseEvent) => {
-  e.preventDefault();
-  if (pageActive - 1 === 0) {
-    getPage(1);
-  } else {
-    getPage(pageActive-1);
   }
-}
 
-let pageNumRightHandler = (e : React.MouseEvent) => {
-  e.preventDefault();
-  if (pageActive + 1 === pagesSum) {
-    getPage(pagesSum);
-  } else {
-    getPage(pageActive+1);
+  let pageNumLeftHandler = (e : React.MouseEvent) => {
+    e.preventDefault();
+    if (pageActive - 1 === 0) {
+      dispatch(newPage(1));
+    } else {
+      dispatch(newPage(pageActive-1));
+    }
+    getPage();
   }
-}
 
-let pagesArr: number[] = arrCreate(pagesSum);
+  let pageNumRightHandler = (e : React.MouseEvent) => {
+    e.preventDefault();
+    if (pageActive + 1 === pagesSum) {
+      dispatch(newPage(pagesSum));
+    } else {
+      dispatch(newPage(pageActive+1));
+    }
+    getPage();
+  }
+
+  let pagesArr: number[] = arrCreate(pagesSum);
+
+  if (pagesSum === 0 || pagesSum === 1) return null;
+
 
   return (
     <div className={style.paginationBlock}>
@@ -53,7 +63,7 @@ let pagesArr: number[] = arrCreate(pagesSum);
       <ul className={style.list}>
         {
           pagesArr.map((item) => {
-            return (item === pageActive) ? <li key={item} className={style.itemActive}>{item}</li> 
+            return (item === pageActive) ? <li key={item} className={`${style.item} ${style.itemActive}`}>{item}</li> 
             : <li key={item} className={style.item}>{item}</li>
           })
         }

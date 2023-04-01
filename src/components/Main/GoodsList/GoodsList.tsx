@@ -18,14 +18,23 @@ interface ICatalog {
 }
 
 const GoodsList: FC<ICat> = ({options}) => {
+  console.log(options.length);
 
-  return (
-    <ul className={style.list}>
-      {options.map((item) => {
-        return <GoodCard key={item.barcode} option = {item} />
-      })}
-    </ul>
-  )
+  if (options.length!== 0) {
+    return (
+      <ul className={style.list}>
+        {options.map((item) => {
+          return <GoodCard key={item.barcode} option = {item} />
+        })}
+      </ul>
+    )
+  } else {
+    return (
+      <h3>Товары не найдены</h3>
+    )
+  }
+
+
 }
 
 export default GoodsList;
