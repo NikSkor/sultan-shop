@@ -49,10 +49,6 @@ const SortForm: FC = () => {
           </label>
           <label className={style.checkboxLabel}>
             <input type="checkbox"/>
-            LULU
-          </label>
-          <label className={style.checkboxLabel}>
-            <input type="checkbox"/>
             New Line
           </label>
         </div>

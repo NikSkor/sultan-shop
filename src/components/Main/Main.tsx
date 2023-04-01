@@ -9,6 +9,29 @@ import catalog from '../../catalog.json';
 
 export default function Main() {
 
+  let pages: number;
+  let paginSize: number = 15;
+  let pageNumber: number = 1;
+  let resultCatalog: ICatalog[] = [];
+
+  if (catalog.length > paginSize) {
+    pages = Math.ceil(catalog.length / paginSize);
+    console.log(pages);
+    for (let i = 0;  i < catalog.length; i++) {
+
+      if(paginSize*(pageNumber) <= catalog.length) {
+        if (i+1+(pageNumber-1)*paginSize > paginSize*pageNumber) break;
+      } else {
+        if (i+1+(pageNumber-1)*paginSize > (paginSize*(pageNumber-1) + (catalog.length - (pageNumber-1)*paginSize)) ) break;
+      }
+
+      
+
+      resultCatalog.push(catalog[i+(pageNumber-1)*paginSize]);
+    }
+  }
+  console.log(resultCatalog);
+
   interface ICatalog {
   url: string,
   name: string,
@@ -21,9 +44,6 @@ export default function Main() {
   price: number,
   type: string[]
 }
-
-  // let infoCatalog: ICatalog[] = JSON.parse(catalog).map(Object.values);
-  // console.log('infoCatalog: ', infoCatalog);
 
   interface ISelectors {
     title: string,
@@ -120,7 +140,7 @@ export default function Main() {
           <CategoriesSubNav options={categories}/>
         </div>
         <div className={style.goods}>
-          <GoodsList options={catalog}/>
+          <GoodsList options={resultCatalog}/>
         </div>
       </div>
       </div>

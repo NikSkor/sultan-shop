@@ -23,7 +23,6 @@ interface ICatalog {
 
 const GoodCard: FC<ICat> = ({option}) => {
 
-  console.log(option);
   return (
     <li className={style.item}>
       <img src={option.url} alt="Фото товара" className={style.goodsImg}/>
