@@ -3,6 +3,8 @@ import style from './GoodCard.module.scss';
 import bottleImg from '../../../../img/bottle.svg';
 import boxImg from '../../../../img/box.svg';
 import cartImg from '../../../../img/basket.svg';
+import { userSlice } from '../../../../store/reducers/UserSlice';
+import { useAppDispatch } from '../../../../hooks/redux';
 
 
 interface ICat {
@@ -23,6 +25,10 @@ interface ICatalog {
 
 const GoodCard: FC<ICat> = ({option}) => {
 
+  const {openGood} = userSlice.actions;
+
+  const dispatch = useAppDispatch();
+
   return (
     <li className={style.item}>
       <img src={option.url} alt="Фото товара" className={style.goodsImg}/>
@@ -33,7 +39,9 @@ const GoodCard: FC<ICat> = ({option}) => {
           {`${option.size} ${option.sizeType}`}
         </p>
       </div>
-      <button className={style.goodTitle}>
+      <button className={style.goodTitle} onClick={()=> {
+        dispatch(openGood(option.barcode));
+      }}>
         <h4 className={style.goodName}>
           {`${option.brand} ${option.name}`}
         </h4>

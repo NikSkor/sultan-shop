@@ -216,7 +216,7 @@ export default function Main() {
         <ul className={style.navList}>
           <li className={style.navItem}>Главная</li>
           <li className={style.navItem}>Косметика и гигиена</li>
-      </ul>
+        </ul>
       <div className={style.sectorTitle}>
         <h2 className={style.title}>Косметика и гигиена</h2>
         <Selector title='Сортировка:' options={selectors} />

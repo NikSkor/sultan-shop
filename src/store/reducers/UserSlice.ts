@@ -12,6 +12,7 @@ interface UserState {
   maxPrice: number,
   minPriceInput: number | string,
   maxPriceInput: number | string,
+  goodsBarcode: number
 }
 
 const initialState: UserState = {
@@ -26,6 +27,7 @@ const initialState: UserState = {
   maxPrice: 0,
   minPriceInput: '',
   maxPriceInput: '',
+  goodsBarcode: 1000000000019
 };
 
 export const userSlice = createSlice({
@@ -35,8 +37,6 @@ export const userSlice = createSlice({
     getType(state, action: PayloadAction<string>) {
       state.type = action.payload;
       state.page = 1;
-      // state.brand.length = 0;
-      // state.brandFilter.length = 0;
     },
     newPage(state, action: PayloadAction<number>) {
       state.page = action.payload;
@@ -117,6 +117,10 @@ export const userSlice = createSlice({
       state.minPrice = 0;
       state.maxPrice = 0;
     },
+    openGood(state, action: PayloadAction<number>) {
+      state.goodsBarcode = 0;
+      state.goodsBarcode = action.payload;
+    }
   }
 });
 
