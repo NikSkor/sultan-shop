@@ -9,8 +9,8 @@ const App = () => {
   return (
     <>
       <Header/>
-      {/* <Main/> */}
-      <GoodPage/>
+        <Main/>
+        <GoodPage/>
       <Footer/>
     </>
   )
