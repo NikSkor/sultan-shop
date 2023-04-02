@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.scss';
 import Catalog from './components/Pages/Catalog';
 import Good from './components/Pages/Good';
+import catalog from './catalog.json';
 
 
 
@@ -12,7 +13,9 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path='*' element={<Catalog/>}/>
-        <Route path='/good' element={<Good/>}/>
+        {catalog.map((item)=> {
+          return <Route key={item.barcode} path={`/good:${item.barcode}`} element={<Good/>}/>
+        })}
       </Routes>
     </BrowserRouter>
   )

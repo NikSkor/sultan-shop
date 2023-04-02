@@ -43,7 +43,7 @@ const GoodCard: FC<ICat> = ({option}) => {
       <button className={style.goodTitle} onClick={()=> {
         dispatch(openGood(option.barcode));
       }}>
-      <Link to='/good'>
+      <Link to={`/good:${option.barcode}`}>
         <h4 className={style.goodName}>
           {`${option.brand} ${option.name}`}
         </h4>
