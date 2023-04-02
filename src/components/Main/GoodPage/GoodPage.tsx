@@ -7,7 +7,7 @@ import boxImg from '../../../img/box.svg';
 import cartImg from '../../../img/basket.svg';
 import shareImg from '../../../img/share.svg';
 import arrowImg from '../../../img/arrow-download.svg';
-import { Link } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 
 
 
@@ -31,10 +31,18 @@ const GoodPage: FC = () => {
       left: 0,
       behavior: 'smooth',
     });
+
+  let loc: string = document.location.pathname;
+  let urlBarcode: number = +loc.slice(6);
+
+
   const barcode = useAppSelector(state => state.userReducer.goodsBarcode);
 
-  let getParams = (catalog: ICatalog[], barcode: number) => {
-    
+  let getParams = (catalog: ICatalog[], barcode: number, urlCode: number) => {
+    if(barcode === 0) {
+      barcode = urlCode
+    }
+
     let object: ICatalog = {
       url: '',
       name: '',
@@ -47,7 +55,9 @@ const GoodPage: FC = () => {
       price: 0,
       type: []
     };
-      catalog.forEach((item)=> {
+
+
+    catalog.forEach((item)=> {
       if(item.barcode === barcode) {
         Object.assign(object, item);
       }
@@ -55,10 +65,7 @@ const GoodPage: FC = () => {
     return object;
   }
 
-  let goodParam: ICatalog = getParams(catalog, barcode);
-
-
-  console.log(goodParam);
+  let goodParam: ICatalog = getParams(catalog, barcode, urlBarcode);
 
 
   return (
@@ -66,8 +73,7 @@ const GoodPage: FC = () => {
       <div className='container'>
         <ul className={style.navList}>
           <li className={style.navItem}>Главная</li>
-          <li className={style.navItem}>
-            <Link to='*'>Каталог</Link></li>
+          <li className={style.navItem}>Каталог</li>
           <li className={style.navItem}>{`${goodParam.brand} ${goodParam.name}`}</li>
         </ul>
         <div className={style.goodContainer}>
