@@ -5,6 +5,7 @@ import boxImg from '../../../../img/box.svg';
 import cartImg from '../../../../img/basket.svg';
 import { userSlice } from '../../../../store/reducers/UserSlice';
 import { useAppDispatch } from '../../../../hooks/redux';
+import { Link } from 'react-router-dom';
 
 
 interface ICat {
@@ -42,9 +43,11 @@ const GoodCard: FC<ICat> = ({option}) => {
       <button className={style.goodTitle} onClick={()=> {
         dispatch(openGood(option.barcode));
       }}>
+      <Link to='/good'>
         <h4 className={style.goodName}>
           {`${option.brand} ${option.name}`}
         </h4>
+      </Link>
       </button>
       <div className={style.details}>
         <ul className={style.detailsList}>
