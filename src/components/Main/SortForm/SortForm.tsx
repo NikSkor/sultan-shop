@@ -9,6 +9,9 @@ const SortForm: FC = () => {
   
   const brands = useAppSelector(state => state.userReducer.search);
   const brandsFilter = useAppSelector(state => state.userReducer.brand);
+  const minPriceInput = useAppSelector(state => state.userReducer.minPriceInput);
+  const maxPriceInput = useAppSelector(state => state.userReducer.maxPriceInput);
+
 
   let brandArr: string[] = [
     'ARAVIA',
@@ -40,8 +43,10 @@ const SortForm: FC = () => {
   const {filterCatalogBrands} = userSlice.actions;
   const {clearBrands} = userSlice.actions;
   const {clearSearch} = userSlice.actions;
-
-
+  const {inputMinPrice} = userSlice.actions;
+  const {inputMaxPrice} = userSlice.actions;
+  const {minPrice} = userSlice.actions;
+  const {maxPrice} = userSlice.actions;
 
   const dispatch = useAppDispatch();
 
@@ -51,9 +56,23 @@ const SortForm: FC = () => {
         <h3 className={style.title}>ПОДБОР ПО ПАРАМЕТРАМ</h3>
         <div className={style.price}>Цена<p className={style.currency}>₸</p></div>
         <div className={style.priceRangeBlock}>
-          <input type="number" className={style.inputNumber}/>
+          <input 
+            type="number" 
+            className={style.inputNumber}
+            value = {minPriceInput}
+            onChange={(e) => {
+              dispatch(inputMinPrice(e.target.value));
+            }}
+            />
           <p className={style.simbol}>-</p>
-          <input type="number" className={style.inputNumber}/>
+          <input 
+            type="number" 
+            className={style.inputNumber}
+            value = {maxPriceInput}
+            onChange={(e) => {
+              dispatch(inputMaxPrice(e.target.value));
+            }}
+            />
         </div>
       </div>
       <div className={style.brandSort}>
@@ -88,9 +107,13 @@ const SortForm: FC = () => {
           <button 
             className={style.showBtn}
             onClick={(e)=> {
-              if (brandsFilter.length === 0) return;
               e.preventDefault();
-              dispatch(filterCatalogBrands(brandsFilter));
+              if (brandsFilter.length !== 0){
+                dispatch(filterCatalogBrands());
+              };
+              
+              dispatch(minPrice());
+              dispatch(maxPrice());
             }}
             >Показать</button>
           <button 

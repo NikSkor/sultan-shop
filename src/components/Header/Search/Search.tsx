@@ -1,4 +1,4 @@
-import React, { FC, useState} from 'react';
+import React, { FC } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { userSlice } from '../../../store/reducers/UserSlice';
 import style from './Search.module.scss';

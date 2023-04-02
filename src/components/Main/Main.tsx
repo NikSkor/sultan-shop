@@ -37,8 +37,25 @@ export default function Main() {
   const type = useAppSelector(state => state.userReducer.type);
   const sortName = useAppSelector(state => state.userReducer.sort);
   const brandsArray = useAppSelector(state => state.userReducer.brandFilter);
+  const minPrice = useAppSelector(state => state.userReducer.minPrice);
+  const maxPrice = useAppSelector(state => state.userReducer.maxPrice);
 
-  
+  const priceFilter = (catalog: ICatalog[], min: number, max: number) => {
+    if (min === 0 && max === 0) return catalog;
+    let newCatalog: ICatalog[] = [];
+
+    catalog.forEach((item) => {
+      if(item.price >= min && item.price <= max) {
+        newCatalog.push(item);
+      }
+    });
+
+    console.log(newCatalog);
+
+    return newCatalog;
+  };
+
+  let goodsCatalog: ICatalog[] = priceFilter(catalog, minPrice, maxPrice);
 
   const brandsFilter = (catalog: ICatalog[], brandsArray: string[]) => {
     let newCatalog: ICatalog[] = [];
@@ -54,14 +71,14 @@ export default function Main() {
     return newCatalog;
   }
 
-  let goodsCatalog: ICatalog[] = brandsFilter(catalog, brandsArray);
+  goodsCatalog = brandsFilter(goodsCatalog, brandsArray);
 
   const filterCatalog = (catalog: ICatalog[]) => {
 
     if (type ==='') return catalog;
     let newCatalog: ICatalog[] = [];
 
-    newCatalog.forEach((item) => {
+    catalog.forEach((item) => {
       if(item.type.includes(type)) {
         newCatalog.push(item);
       }
