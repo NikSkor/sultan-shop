@@ -1,18 +1,19 @@
 import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.scss';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
-import GoodPage from './components/Main/GoodPage/GoodPage';
-import Main from './components/Main/Main';
+import Catalog from './components/Pages/Catalog';
+import Good from './components/Pages/Good';
+
+
 
 const App = () => {
   return (
-    <>
-      <Header/>
-        <Main/>
-        <GoodPage/>
-      <Footer/>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='*' element={<Catalog/>}/>
+        <Route path='/good' element={<Good/>}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

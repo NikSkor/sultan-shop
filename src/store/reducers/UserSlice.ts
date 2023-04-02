@@ -27,7 +27,7 @@ const initialState: UserState = {
   maxPrice: 0,
   minPriceInput: '',
   maxPriceInput: '',
-  goodsBarcode: 0
+  goodsBarcode: 1000000000001
 };
 
 export const userSlice = createSlice({

@@ -27,12 +27,6 @@ interface ICatalog {
 const GoodPage: FC = () => {
   const barcode = useAppSelector(state => state.userReducer.goodsBarcode);
 
-  if(barcode === 0) {
-    return (
-      <h3 className='container'>Карточка пуста</h3>
-    )
-  }
-
   let getParams = (catalog: ICatalog[], barcode: number) => {
     
     let object: ICatalog = {
