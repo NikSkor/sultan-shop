@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import './App.scss';
 import Catalog from './components/Pages/Catalog';
 import Good from './components/Pages/Good';

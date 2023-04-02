@@ -7,7 +7,7 @@ import boxImg from '../../../img/box.svg';
 import cartImg from '../../../img/basket.svg';
 import shareImg from '../../../img/share.svg';
 import arrowImg from '../../../img/arrow-download.svg';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
@@ -73,7 +73,9 @@ const GoodPage: FC = () => {
       <div className='container'>
         <ul className={style.navList}>
           <li className={style.navItem}>Главная</li>
-          <li className={style.navItem}>Каталог</li>
+          <li className={style.navItem}>
+            <Link to='/*'>Каталог</Link>
+            </li>
           <li className={style.navItem}>{`${goodParam.brand} ${goodParam.name}`}</li>
         </ul>
         <div className={style.goodContainer}>
