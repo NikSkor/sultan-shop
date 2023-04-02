@@ -48,7 +48,7 @@ const Header: FC = () => {
             <HeaderBtn text='Каталог'>
               <img className={style.icon} src={catalogImg} alt="Значок каталога" />
             </HeaderBtn>
-            <Search/>
+            <Search isDisabled={true}/>
           </div>
           <div className={style.userService}>
             <Support telColor='#111111' textColor='#3F4E65' alItems='flex-end'>

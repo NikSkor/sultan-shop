@@ -36,15 +36,32 @@ export default function Main() {
   const pageNumber = useAppSelector(state => state.userReducer.page);
   const type = useAppSelector(state => state.userReducer.type);
   const sortName = useAppSelector(state => state.userReducer.sort);
+  const brandsArray = useAppSelector(state => state.userReducer.brandFilter);
 
-  console.log(sortName);
+  
+
+  const brandsFilter = (catalog: ICatalog[], brandsArray: string[]) => {
+    let newCatalog: ICatalog[] = [];
+    if (brandsArray.length === 0) return catalog;
+
+    for (let i = 0; i < catalog.length; i++) {
+      for (let j = 0; j < brandsArray.length; j++) {
+        if(catalog[i].brand === brandsArray[j])
+        newCatalog.push(catalog[i]);
+      }
+    }
+
+    return newCatalog;
+  }
+
+  let goodsCatalog: ICatalog[] = brandsFilter(catalog, brandsArray);
 
   const filterCatalog = (catalog: ICatalog[]) => {
 
     if (type ==='') return catalog;
     let newCatalog: ICatalog[] = [];
 
-    catalog.forEach((item) => {
+    newCatalog.forEach((item) => {
       if(item.type.includes(type)) {
         newCatalog.push(item);
       }
@@ -53,10 +70,9 @@ export default function Main() {
     return newCatalog;
   }
 
-  let goodsCatalog: ICatalog[] = filterCatalog(catalog);
+  goodsCatalog = filterCatalog(goodsCatalog);
 
   let sortCatalog = (catalog: ICatalog[], name: string) => {
-  // let resultCatalog: ICatalog[] = [];
 
   if(name === 'name' || name === 'brand') {
     const key = name;
@@ -100,26 +116,6 @@ export default function Main() {
   }
 
   goodsCatalog = paginateCatalog(goodsCatalog, paginSize, pageNumber);
-
-
-
-    
-
-    // if(name === 'name') {
-    //   const key = 'name';
-    //   catalog = catalog.sort((item1, item2) => item1[key] > item2[key] ? 1 : -1);
-    // }
-    // if(name === 'brand') {
-    //   const key = 'brand';
-    //   catalog = catalog.sort((item1, item2) => item1[key] > item2[key] ? 1 : -1);
-    // }
-    // if(name === 'toUp') {
-
-    // }
-
-
-
-
 
   const updatePage = () => {
     window.scrollTo({
