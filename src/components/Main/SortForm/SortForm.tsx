@@ -27,7 +27,7 @@ const SortForm: FC = () => {
     let searchBrands: string[] = [];
 
       brands.forEach((item: string) => {
-      if(item.includes(name)) {
+      if(item.toLowerCase().includes(name.toLocaleLowerCase())) {
         searchBrands.push(item);
       }
     });
@@ -38,6 +38,10 @@ const SortForm: FC = () => {
 
   const {filterBrands} = userSlice.actions;
   const {filterCatalogBrands} = userSlice.actions;
+  const {clearBrands} = userSlice.actions;
+  const {clearSearch} = userSlice.actions;
+
+
 
   const dispatch = useAppDispatch();
 
@@ -52,7 +56,7 @@ const SortForm: FC = () => {
           <input type="number" className={style.inputNumber}/>
         </div>
       </div>
-      <form className={style.brandSort}>
+      <div className={style.brandSort}>
         <h3 className={style.title} style={{marginBottom: '15px'}}>Бренд</h3>
         <Search/>
         <div className={style.checkboxBlock}>
@@ -62,8 +66,14 @@ const SortForm: FC = () => {
                 <input 
                 type="checkbox"
                 data-id = {item}
+                checked = {
+                  (brandsFilter.includes(item))
+                  ? true
+                  : false
+                }
                 onChange = {(e)=> {
                   let str: string | undefined = e.target.dataset['id'];
+                  
                   if(typeof str === 'string') {
                     dispatch(filterBrands(str));
                   }
@@ -77,16 +87,24 @@ const SortForm: FC = () => {
         <div className={style.submitBlock}>
           <button 
             className={style.showBtn}
-            onClick={()=> {
+            onClick={(e)=> {
+              if (brandsFilter.length === 0) return;
+              e.preventDefault();
               dispatch(filterCatalogBrands(brandsFilter));
             }}
             >Показать</button>
-          <button className={style.cleaneBtn}>
+          <button 
+            className={style.cleaneBtn}
+            onClick={(e)=> {
+              dispatch(clearBrands());
+              dispatch(clearSearch());
+            }}
+            >
             <img src={trashImg} alt="Значок очистки" />
           </button>
         </div>
 
-      </form>
+      </div>
     </div>
   )
 }

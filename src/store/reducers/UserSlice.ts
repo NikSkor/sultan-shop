@@ -6,7 +6,8 @@ interface UserState {
   sort: string,
   search: string,
   brand: string[],
-  brandFilter: string[]
+  brandFilter: string[], 
+  searchText: string
 }
 
 const initialState: UserState = {
@@ -15,7 +16,8 @@ const initialState: UserState = {
   sort: 'brand',
   search: '',
   brand: [],
-  brandFilter: []
+  brandFilter: [],
+  searchText: ''
 };
 
 export const userSlice = createSlice({
@@ -47,7 +49,18 @@ export const userSlice = createSlice({
     },
     filterCatalogBrands(state, action: PayloadAction<string[]>) {
       state.brandFilter.length = 0;
-      state.brandFilter = [...state.brandFilter, ...action.payload];
+      state.brandFilter = [...state.brandFilter, ...state.brand];
+    },
+    clearBrands(state){
+      state.brandFilter.length = 0;
+      state.brand.length = 0;
+    },
+    setSearchText(state, action: PayloadAction<string>){
+      state.searchText = action.payload;
+    },
+    clearSearch(state) {
+      state.search = '';
+      state.searchText = '';
     }
   }
 });

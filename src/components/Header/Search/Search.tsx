@@ -1,5 +1,5 @@
 import React, { FC, useState} from 'react';
-import { useAppDispatch } from '../../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { userSlice } from '../../../store/reducers/UserSlice';
 import style from './Search.module.scss';
 
@@ -8,8 +8,13 @@ interface IDisabled {
 }
 
 const Search: FC<IDisabled> = ({isDisabled}) => {
-  let [searchText, setSearchText] = useState('');
+
+  const searchText = useAppSelector(state => state.userReducer.searchText);
   const {searchBrands} = userSlice.actions;
+  const {clearBrands} = userSlice.actions;
+  const {setSearchText} = userSlice.actions;
+
+
   const dispatch = useAppDispatch();
 
   return (
@@ -19,14 +24,17 @@ const Search: FC<IDisabled> = ({isDisabled}) => {
         type="text" placeholder='Поиск...'
         value = {searchText}
         onChange={(e)=> {
-          setSearchText(e.target.value);
+          dispatch(setSearchText(e.target.value));
         }}
         disabled={isDisabled}/>
       <button 
         className={style.btn}
         onClick={(e)=> {
+          e.preventDefault();
+          if (searchText === '') return;
           dispatch(searchBrands(searchText));
-          setSearchText('');
+          // setSearchText('');
+          dispatch(clearBrands());
         }}
         disabled={isDisabled}>
         <svg width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
