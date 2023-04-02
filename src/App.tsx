@@ -7,6 +7,7 @@ import Good from './components/Pages/Good';
 
 
 const App = () => {
+  
   return (
     <BrowserRouter>
       <Routes>
