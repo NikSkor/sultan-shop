@@ -1,0 +1,24 @@
+.block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  color: inherit;
+}
+
+.description {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 130.02%;
+}

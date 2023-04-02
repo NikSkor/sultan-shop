@@ -1,0 +1,61 @@
+.upline {
+  border-bottom: 1px solid rgba(63, 78, 101, .2);
+}
+
+.uplineBody {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.contacts {
+  display: flex;
+  gap: 40px;
+  color: #111111;
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+}
+
+.downline {
+  padding-top: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(63, 78, 101, .2);
+}
+
+.downlineBody {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  // flex-wrap: nowrap;
+}
+
+.goods {
+  display: flex;
+  gap: 15px;
+  // width: 480px;
+
+}
+
+.userService {
+  display: flex;
+  gap: 50px;
+  color: #3F4E65;
+}
+
+.imgContainer {
+  width: 70px;
+  height: 59px;
+  position: relative;
+}
+
+.img {
+  position: absolute;
+  max-height: 92px;
+  bottom: -8px;
+}

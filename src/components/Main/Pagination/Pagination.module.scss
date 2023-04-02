@@ -1,0 +1,28 @@
+.paginationBlock {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+  margin-bottom: 68px;
+}
+
+.list {
+  display: flex;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 130%;
+  color: #3F4E65;
+  align-items: center;
+  gap: 9px;
+  // height: 14px;
+}
+
+.itemActive {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 14px;
+  gap: 10px;
+  background: linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%);
+  border-radius: 100%;
+}

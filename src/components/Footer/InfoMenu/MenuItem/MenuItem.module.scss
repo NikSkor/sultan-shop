@@ -1,0 +1,10 @@
+.itemBtn {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    color: #E5E5E5;
+  }
+}

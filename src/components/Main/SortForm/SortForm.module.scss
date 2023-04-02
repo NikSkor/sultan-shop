@@ -1,0 +1,105 @@
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #111111;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.price {
+  display: flex;
+  gap: 5px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 150%;
+  color: #3F4E65;
+  margin-bottom: 16px;
+}
+
+.currency {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  color: #111111;
+}
+
+.priceRangeBlock {
+  width: 238px;
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px dashed rgba(63, 78, 101, .3);
+  padding-bottom: 30px;
+}
+
+.inputNumber {
+  min-width: 100px;
+  appearance: none;
+  padding: 4px 5px;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  color: #3F4E65;
+  border: none;
+  outline: none;
+  background-image: linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%);
+  border-radius: 1000px;
+}
+
+.symbol {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 130%;
+  color: #3F4E65;
+}
+
+.brandSort {
+  width: 238px;
+}
+
+.checkboxBlock {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.checkboxLabel {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: #3F4E65;
+}
+
+.submitBlock {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.showBtn {
+  background-color: #FFC85E;
+  border-radius: 79px;
+  padding: 21px 51px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+}
+
+.cleaneBtn {
+  background: #FFC85E;
+  border-radius: 79px;
+  color: #FFFFFF;
+  padding: 10px 19px;
+}

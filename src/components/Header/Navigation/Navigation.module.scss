@@ -1,0 +1,18 @@
+@import '../../../vars';
+
+.list {
+  display: flex;
+  gap: 60px;
+}
+
+.item {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: #3F4E65;
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    color: $dark-gray;
+  }
+}
