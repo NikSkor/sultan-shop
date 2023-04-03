@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import style from './InCart.module.scss';
 import catalog from '../../../catalog.json';
@@ -61,6 +61,8 @@ const InCart: FC = () => {
 
   const dispatch = useAppDispatch();
 
+  let [thanks, setThanks] = useState('');
+
   return(
     <div className={style.page}>
       <div className='container'>
@@ -82,10 +84,12 @@ const InCart: FC = () => {
           onClick = {(e) => {
             e.preventDefault();
             dispatch(clearCart());
+            setThanks('Спасибо за Ваш заказ!');
           }}
           >Оформить заказ</button>
         <p className={style.price}>{`${cartSum} ₸`}</p>
       </div>
+      <h3 className={style.thanks}>{thanks}</h3>
       </div>
     </div>
   )
