@@ -27,6 +27,8 @@ interface ICatalog {
 const GoodCard: FC<ICat> = ({option}) => {
 
   const {openGood} = userSlice.actions;
+  const {addToCartOnCard} = userSlice.actions;
+
 
   const dispatch = useAppDispatch();
 
@@ -67,7 +69,13 @@ const GoodCard: FC<ICat> = ({option}) => {
       </div>
       <div className={style.priceBlock}>
         <p className={style.price}>{`${option.price} ₸`}</p>
-        <button className={style.btnCart}>
+        <button 
+          className={style.btnCart}
+          onClick={(e)=> {
+            e.preventDefault();
+            dispatch(addToCartOnCard(option.barcode));
+          }}
+          >
           <p>В корзину</p>
           <img src={cartImg} alt="Значок тележки для покупок"/>
         </button>

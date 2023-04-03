@@ -5,6 +5,12 @@ import GoodPage from '../Main/GoodPage/GoodPage';
 
 
 const Good = () => {
+  window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+    
   return (
     <>
       <Header/>

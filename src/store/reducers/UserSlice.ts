@@ -1,5 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
+
 interface UserState {
   type: string,
   page: number,
@@ -12,7 +13,14 @@ interface UserState {
   maxPrice: number,
   minPriceInput: number | string,
   maxPriceInput: number | string,
-  goodsBarcode: number
+  goodsBarcode: number,
+  counter: number,
+  cart: [
+    {
+      code: number,
+      count: number
+    }
+  ]
 }
 
 const initialState: UserState = {
@@ -27,7 +35,14 @@ const initialState: UserState = {
   maxPrice: 0,
   minPriceInput: '',
   maxPriceInput: '',
-  goodsBarcode: 0
+  goodsBarcode: 0,
+  counter: 1,
+  cart: [
+    {
+      code: 0,
+      count: 0
+    }
+  ]
 };
 
 export const userSlice = createSlice({
@@ -120,6 +135,66 @@ export const userSlice = createSlice({
     openGood(state, action: PayloadAction<number>) {
       state.goodsBarcode = 0;
       state.goodsBarcode = action.payload;
+    },
+    countIncrement(state){
+      console.log('zuzu');
+      state.counter++;
+    },
+    countDecrement(state){
+      
+      if(state.counter <=0) {
+        state.counter = 0;
+      } else {
+        state.counter--;
+      }
+    },
+    addToCart(state, action: PayloadAction<number>) {
+      if (state.cart[0].code === 0) {
+        state.cart.splice(0, state.cart.length); 
+      }
+
+      let isDublicate = false;
+
+      state.cart.forEach((item)=> {
+        if(item.code === action.payload) {
+          item.count = state.counter;
+          isDublicate = true;
+        }
+      });
+
+      if (!isDublicate) {
+        let obj = {
+            code: action.payload,
+            count: state.counter
+          }
+        state.cart.push(obj);
+      }
+    },
+    addToCartOnCard(state, action: PayloadAction<number>) {
+      if (state.cart[0].code === 0) {
+        state.cart.splice(0, state.cart.length); 
+      }
+
+      let isDublicate = false;
+
+      state.cart.forEach((item)=> {
+        if(item.code === action.payload) {
+          item.count++;
+          isDublicate = true;
+        }
+      });
+
+      if (!isDublicate) {
+        let obj = {
+            code: action.payload,
+            count: state.counter
+          }
+        state.cart.push(obj);
+      }
+
+    },
+    cleanCounter(state){
+      state.counter = 1;
     }
   }
 });

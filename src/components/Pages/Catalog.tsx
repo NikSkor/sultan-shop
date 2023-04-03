@@ -1,5 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useAppDispatch } from '../../hooks/redux';
+import { userSlice } from '../../store/reducers/UserSlice';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
@@ -9,8 +11,12 @@ const Catalog = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
-    navigate(location.pathname, {}); 
+    navigate(location.pathname, {});
 
+    const {cleanCounter} = userSlice.actions;
+    const dispatch = useAppDispatch();
+
+    dispatch(cleanCounter());
   return (
     <>
       <Header/>

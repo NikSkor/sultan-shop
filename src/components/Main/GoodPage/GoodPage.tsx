@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { useAppSelector } from '../../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import style from './GoodPage.module.scss';
 import catalog from '../../../catalog.json';
 import bottleImg from '../../../img/bottle.svg';
@@ -8,6 +8,7 @@ import cartImg from '../../../img/basket.svg';
 import shareImg from '../../../img/share.svg';
 import arrowImg from '../../../img/arrow-download.svg';
 import { Link } from 'react-router-dom';
+import { userSlice } from '../../../store/reducers/UserSlice';
 
 
 
@@ -26,14 +27,17 @@ interface ICatalog {
 }
 
 const GoodPage: FC = () => {
-  window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
 
   let loc: string = document.location.pathname;
   let urlBarcode: number = +loc.slice(6);
+
+  let counter = useAppSelector(state => state.userReducer.counter);
+  const {countIncrement} = userSlice.actions;
+  const {countDecrement} = userSlice.actions;
+  const {addToCart} = userSlice.actions;
+
+
+  const dispatch = useAppDispatch();
 
 
   const barcode = useAppSelector(state => state.userReducer.goodsBarcode);
@@ -97,11 +101,29 @@ const GoodPage: FC = () => {
             <div className={style.priceBlock}>
               <p className={style.price}>{`${goodParam.price} ₸`}</p>
               <div className={style.control}>
-                  <button className={style.controller}>-</button>
-                  <div className={style.count}>1</div>
-                  <button className={style.controller}>+</button>
+                  <button 
+                    className={style.controller}
+                    onClick={(e)=> {
+                      e.preventDefault();
+                      dispatch(countDecrement());
+                    }}
+                    >-</button>
+                  <div className={style.count}>{counter}</div>
+                  <button 
+                    className={style.controller}
+                    onClick={(e)=> {
+                      e.preventDefault();
+                      dispatch(countIncrement());
+                    }}
+                    >+</button>
                 </div>
-              <button className={style.btnCart}>
+              <button 
+                className={style.btnCart}
+                onClick={(e)=> {
+                  e.preventDefault();
+                  dispatch(addToCart(goodParam.barcode));
+                }}
+                >
                 <p>В корзину</p>
                 <img src={cartImg} alt="Значок тележки для покупок"/>
               </button>
