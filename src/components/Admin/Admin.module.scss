@@ -1,0 +1,66 @@
+.page {
+  margin-bottom: 60px;
+}
+
+.navList {
+  margin-top: 45px;
+  display: flex;
+  margin-bottom: 65px;
+}
+
+.navItem {
+  padding: 0 5px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 120%;
+  color: #3F4E65;
+  border-right: 1px dashed rgba(63, 78, 101, .3);
+
+  &:last-child {
+    border: none;
+    opacity: 0.5;
+  }
+}
+
+.title {
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: #111111;
+  margin-bottom: 50px;
+}
+
+.subTitle {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.itemTitle {
+  font-weight: 500;
+  font-size: 16px;
+  width: 800px;
+}
+
+.redBtn {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.delBtn {
+  width: 40px;
+  // justify-self: flex-end;
+}

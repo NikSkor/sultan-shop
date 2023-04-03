@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import './App.scss';
 import Catalog from './components/Pages/Catalog';
@@ -7,6 +7,7 @@ import catalog from './catalog.json';
 import CartPage from './components/Pages/CartPage';
 import { userSlice } from './store/reducers/UserSlice';
 import { useAppDispatch } from './hooks/redux';
+import AdminPage from './components/Pages/AdminPage';
 
 interface ICatalog {
   [index: string]: string | number | string[],
@@ -25,28 +26,24 @@ interface ICatalog {
 
 const App = () => {
 
-  useEffect(() => {
-  localStorage.setItem('catalog', JSON.stringify(catalog));
-}, []);
+  if(localStorage.getItem('catalog') === null || localStorage.catalog.length <= 2) {
+    localStorage.setItem('catalog', JSON.stringify(catalog));
+  }
 
     const doCatalog = () => {
-    // useEffect(() => {
-      let catalog: ICatalog[] = [];
+      let catalogDownload: ICatalog[] = [];
       let key: string = 'catalog';
 
       if (localStorage.getItem(key) !== null) {
         let str: string | null = localStorage.getItem(key);
         if (str != null) {
-          catalog = JSON.parse(str);
+          catalogDownload = JSON.parse(str);
         }
       }
-    // }, [inCatalog]);
-    return catalog;
+    return catalogDownload;
   }
 
   let inCatalog: ICatalog[] = doCatalog();
-
-  console.log(inCatalog);
 
   const {catalogLoader} = userSlice.actions;
   const dispatch = useAppDispatch();
@@ -61,6 +58,7 @@ const App = () => {
           return <Route key={item.barcode} path={`/good=${item.barcode}`} element={<Good/>}/>
         })}
         <Route path='/cart' element={<CartPage/>}/>
+        <Route path='/admin' element={<AdminPage/>}/>
       </Routes>
     </BrowserRouter>
   )
