@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { useAppSelector } from '../../../hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import style from './GoodPage.module.scss';
 import catalog from '../../../catalog.json';
 import bottleImg from '../../../img/bottle.svg';
@@ -7,6 +7,8 @@ import boxImg from '../../../img/box.svg';
 import cartImg from '../../../img/basket.svg';
 import shareImg from '../../../img/share.svg';
 import arrowImg from '../../../img/arrow-download.svg';
+import { Link } from 'react-router-dom';
+import { userSlice } from '../../../store/reducers/UserSlice';
 
 
 
@@ -25,16 +27,26 @@ interface ICatalog {
 }
 
 const GoodPage: FC = () => {
+
+  let loc: string = document.location.pathname;
+  let urlBarcode: number = +loc.slice(6);
+
+  let counter = useAppSelector(state => state.userReducer.counter);
+  const {countIncrement} = userSlice.actions;
+  const {countDecrement} = userSlice.actions;
+  const {addToCart} = userSlice.actions;
+
+
+  const dispatch = useAppDispatch();
+
+
   const barcode = useAppSelector(state => state.userReducer.goodsBarcode);
 
-  if(barcode === 0) {
-    return (
-      <h3 className='container'>Карточка пуста</h3>
-    )
-  }
+  let getParams = (catalog: ICatalog[], barcode: number, urlCode: number) => {
+    if(barcode === 0) {
+      barcode = urlCode
+    }
 
-  let getParams = (catalog: ICatalog[], barcode: number) => {
-    
     let object: ICatalog = {
       url: '',
       name: '',
@@ -47,7 +59,9 @@ const GoodPage: FC = () => {
       price: 0,
       type: []
     };
-      catalog.forEach((item)=> {
+
+
+    catalog.forEach((item)=> {
       if(item.barcode === barcode) {
         Object.assign(object, item);
       }
@@ -55,10 +69,7 @@ const GoodPage: FC = () => {
     return object;
   }
 
-  let goodParam: ICatalog = getParams(catalog, barcode);
-
-
-  console.log(goodParam);
+  let goodParam: ICatalog = getParams(catalog, barcode, urlBarcode);
 
 
   return (
@@ -66,7 +77,9 @@ const GoodPage: FC = () => {
       <div className='container'>
         <ul className={style.navList}>
           <li className={style.navItem}>Главная</li>
-          <li className={style.navItem}>Каталог</li>
+          <li className={style.navItem}>
+            <Link to='/*'>Каталог</Link>
+            </li>
           <li className={style.navItem}>{`${goodParam.brand} ${goodParam.name}`}</li>
         </ul>
         <div className={style.goodContainer}>
@@ -88,18 +101,36 @@ const GoodPage: FC = () => {
             <div className={style.priceBlock}>
               <p className={style.price}>{`${goodParam.price} ₸`}</p>
               <div className={style.control}>
-                  <button className={style.controller}>-</button>
-                  <div className={style.count}>1</div>
-                  <button className={style.controller}>+</button>
-                </div>
-              <button className={style.btnCart}>
+                <button 
+                  className={style.controller}
+                  onClick={(e)=> {
+                    e.preventDefault();
+                    dispatch(countDecrement());
+                  }}
+                  >-</button>
+                <div className={style.count}>{counter}</div>
+                <button 
+                  className={style.controller}
+                  onClick={(e)=> {
+                    e.preventDefault();
+                    dispatch(countIncrement());
+                  }}
+                  >+</button>
+              </div>
+              <button 
+                className={style.btnCart}
+                onClick={(e)=> {
+                  e.preventDefault();
+                  dispatch(addToCart(goodParam.barcode));
+                }}
+                >
                 <p>В корзину</p>
                 <img src={cartImg} alt="Значок тележки для покупок"/>
               </button>
             </div>
             <div className={style.downloads}>
               <div className={style.downloadsImg}>
-                <img src={shareImg} alt="Знвчок переслать" />
+                <img src={shareImg} alt="Значок переслать" />
               </div>
               <div className={style.downloadsText}>
                 При покупке от <span className={style.textSpan}>10 000 ₸</span> бесплатная доставка по Кокчетаву и области

@@ -2,10 +2,16 @@
   display: flex;
   gap: 24px;
   align-items: center;
+  margin-right: 24px;
+}
+
+.svg {
+  z-index: -5;
 }
 
 .imgContainer {
-  width: 46px;
+  width: 40px;
+  position: relative;
 }
 
 .info {
@@ -27,4 +33,33 @@
   color: #111111;
   display: flex;
   gap: 4px;
+}
+
+.counter {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #FFFFFF;
+  z-index: 10;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 100%;
+  top: 10%;
+
+  &:after {
+      width: 22px;
+      height: 22px;
+      display: block;
+      content: '';
+      border-radius: 50%;
+      box-sizing: content-box;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      background: #FFC85E;
+      border: 3px solid #FFFFFF;
+      z-index: -5;
+    }
 }

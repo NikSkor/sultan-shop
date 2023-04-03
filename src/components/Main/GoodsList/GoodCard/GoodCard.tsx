@@ -5,9 +5,10 @@ import boxImg from '../../../../img/box.svg';
 import cartImg from '../../../../img/basket.svg';
 import { userSlice } from '../../../../store/reducers/UserSlice';
 import { useAppDispatch } from '../../../../hooks/redux';
+import { Link } from 'react-router-dom';
 
 
-interface ICat {
+interface ICategory {
   option: ICatalog
 }
 interface ICatalog {
@@ -23,9 +24,11 @@ interface ICatalog {
   type: string[]
 }
 
-const GoodCard: FC<ICat> = ({option}) => {
+const GoodCard: FC<ICategory> = ({option}) => {
 
   const {openGood} = userSlice.actions;
+  const {addToCartOnCard} = userSlice.actions;
+
 
   const dispatch = useAppDispatch();
 
@@ -42,9 +45,11 @@ const GoodCard: FC<ICat> = ({option}) => {
       <button className={style.goodTitle} onClick={()=> {
         dispatch(openGood(option.barcode));
       }}>
+      <Link to={`/good=${option.barcode}`}>
         <h4 className={style.goodName}>
           {`${option.brand} ${option.name}`}
         </h4>
+      </Link>
       </button>
       <div className={style.details}>
         <ul className={style.detailsList}>
@@ -64,7 +69,13 @@ const GoodCard: FC<ICat> = ({option}) => {
       </div>
       <div className={style.priceBlock}>
         <p className={style.price}>{`${option.price} ₸`}</p>
-        <button className={style.btnCart}>
+        <button 
+          className={style.btnCart}
+          onClick={(e)=> {
+            e.preventDefault();
+            dispatch(addToCartOnCard(option.barcode));
+          }}
+          >
           <p>В корзину</p>
           <img src={cartImg} alt="Значок тележки для покупок"/>
         </button>
