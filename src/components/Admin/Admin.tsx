@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import style from './Admin.module.scss';
@@ -47,9 +47,8 @@ const Admin: FC = () => {
     localStorage.clear()
     localStorage.setItem('catalog', JSON.stringify(oldCatalog));
     dispatch(catalogLoader(oldCatalog));
-    console.log('oldCatalog: ', oldCatalog);
+    // console.log(localStorage.catalog.length);
   }
-
     
   return(
     <div className={style.page}>
@@ -66,13 +65,15 @@ const Admin: FC = () => {
           {goodCatalog.map((item)=> {
             return <li key={item.barcode} className={style.item}>
                 <h4 className={style.itemTitle}>{`${item.brand} ${item.name}`}</h4>
+                <button className={style.redBtn} onClick={delHandler}>
+                  <p>Редактировать</p>
+                </button>
                 <button className={style.delBtn} onClick={delHandler}>
                   <img src={trashImg} data-id={item.barcode} alt="Значок очистки" />
                 </button>
               </li>
           })}
         </ul>
-        
       </div>
     </div>
   )
