@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { useAppSelector } from '../../../hooks/redux';
 import style from './Cart.module.scss';
-import catalog from '../../../catalog.json';
 import { useNavigate } from 'react-router-dom';
 
 interface ICart {
@@ -26,6 +25,9 @@ interface ICatalog {
 const Cart: FC = () => {
 
   let cart = useAppSelector(state => state.userReducer.cart);
+  const catalogBase = useAppSelector(state => state.userReducer.catalog);
+
+  let goodCatalog: ICatalog[] = [...catalogBase];
 
   let cartUpdate = (cart: ICart[]) => {
 
@@ -48,7 +50,7 @@ const Cart: FC = () => {
   }
 
   let cartCounter = cartUpdate(cart);
-  let cartSum = cartPrice(catalog, cart);
+  let cartSum = cartPrice(goodCatalog, cart);
 
   const navigate = useNavigate();
 

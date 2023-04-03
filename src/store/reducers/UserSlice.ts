@@ -1,7 +1,21 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
+interface ICatalog {
+  [index: string]: string | number | string[],
+  url: string,
+  name: string,
+  sizeType: string,
+  size: number,
+  barcode: number,
+  manufacturer: string,
+  brand: string,
+  description: string,
+  price: number,
+  type: string[]
+}
 
 interface UserState {
+  catalog: ICatalog[],
   type: string,
   page: number,
   sort: string,
@@ -24,6 +38,7 @@ interface UserState {
 }
 
 const initialState: UserState = {
+  catalog: [],
   type: '',
   page: 1,
   sort: 'brand',
@@ -49,6 +64,10 @@ export const userSlice = createSlice({
   name: 'filters',
   initialState,
   reducers: {
+    catalogLoader(state, action: PayloadAction<ICatalog[]>) {
+      state.catalog = action.payload;
+    }
+    ,
     getType(state, action: PayloadAction<string>) {
       state.type = action.payload;
       state.page = 1;

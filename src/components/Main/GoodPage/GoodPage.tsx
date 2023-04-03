@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import style from './GoodPage.module.scss';
-import catalog from '../../../catalog.json';
 import bottleImg from '../../../img/bottle.svg';
 import boxImg from '../../../img/box.svg';
 import cartImg from '../../../img/basket.svg';
@@ -27,6 +26,10 @@ interface ICatalog {
 }
 
 const GoodPage: FC = () => {
+
+  const catalogBase = useAppSelector(state => state.userReducer.catalog);
+
+  let goodCatalog: ICatalog[] = [...catalogBase];
 
   let loc: string = document.location.pathname;
   let urlBarcode: number = +loc.slice(6);
@@ -69,7 +72,7 @@ const GoodPage: FC = () => {
     return object;
   }
 
-  let goodParam: ICatalog = getParams(catalog, barcode, urlBarcode);
+  let goodParam: ICatalog = getParams(goodCatalog, barcode, urlBarcode);
 
 
   return (

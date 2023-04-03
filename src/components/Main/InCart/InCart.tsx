@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react';
 import { Link } from 'react-router-dom';
 import style from './InCart.module.scss';
-import catalog from '../../../catalog.json';
 import CartItem from './CartItem/CartItem';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { userSlice } from '../../../store/reducers/UserSlice';
@@ -26,6 +25,9 @@ interface ICatalog {
 
 const InCart: FC = () => {
   const cart = useAppSelector(state => state.userReducer.cart);
+  const catalogBase = useAppSelector(state => state.userReducer.catalog);
+
+  let catalog: ICatalog[] = [...catalogBase];
 
   const filterCatalog = (catalog: ICatalog[], cart: ICart[]) => {
     let newCatalog: ICatalog[] = [];
