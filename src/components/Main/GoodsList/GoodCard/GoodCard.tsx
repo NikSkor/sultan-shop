@@ -8,7 +8,7 @@ import { useAppDispatch } from '../../../../hooks/redux';
 import { Link } from 'react-router-dom';
 
 
-interface ICat {
+interface ICategory {
   option: ICatalog
 }
 interface ICatalog {
@@ -24,7 +24,7 @@ interface ICatalog {
   type: string[]
 }
 
-const GoodCard: FC<ICat> = ({option}) => {
+const GoodCard: FC<ICategory> = ({option}) => {
 
   const {openGood} = userSlice.actions;
   const {addToCartOnCard} = userSlice.actions;

@@ -4,6 +4,7 @@ import './App.scss';
 import Catalog from './components/Pages/Catalog';
 import Good from './components/Pages/Good';
 import catalog from './catalog.json';
+import CartPage from './components/Pages/CartPage';
 
 
 
@@ -16,6 +17,7 @@ const App = () => {
         {catalog.map((item)=> {
           return <Route key={item.barcode} path={`/good=${item.barcode}`} element={<Good/>}/>
         })}
+        <Route path='/cart' element={<CartPage/>}/>
       </Routes>
     </BrowserRouter>
   )

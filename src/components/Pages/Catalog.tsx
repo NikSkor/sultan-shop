@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../../hooks/redux';
 import { userSlice } from '../../store/reducers/UserSlice';
@@ -7,7 +7,7 @@ import Header from '../Header/Header';
 import Main from '../Main/Main';
 
 
-const Catalog = () => {
+const Catalog: FC = () => {
 
     const location = useLocation();
     const navigate = useNavigate();

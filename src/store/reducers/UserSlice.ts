@@ -39,8 +39,8 @@ const initialState: UserState = {
   counter: 1,
   cart: [
     {
-      code: 0,
-      count: 0
+      code: 1000000000002,
+      count: 8
     }
   ]
 };

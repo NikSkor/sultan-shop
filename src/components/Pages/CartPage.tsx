@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
-import GoodPage from '../Main/GoodPage/GoodPage';
+import InCart from '../Main/InCart/InCart';
 
 
-const Good: FC = () => {
+const CartPage: FC = () => {
   window.scrollTo({
       top: 0,
       left: 0,
@@ -14,10 +14,10 @@ const Good: FC = () => {
   return (
     <>
       <Header/>
-        <GoodPage/>
+        <InCart/>
       <Footer/>
     </>
   )
 }
 
-export default Good;
+export default CartPage;
