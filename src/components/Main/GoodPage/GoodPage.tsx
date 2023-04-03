@@ -101,22 +101,22 @@ const GoodPage: FC = () => {
             <div className={style.priceBlock}>
               <p className={style.price}>{`${goodParam.price} ₸`}</p>
               <div className={style.control}>
-                  <button 
-                    className={style.controller}
-                    onClick={(e)=> {
-                      e.preventDefault();
-                      dispatch(countDecrement());
-                    }}
-                    >-</button>
-                  <div className={style.count}>{counter}</div>
-                  <button 
-                    className={style.controller}
-                    onClick={(e)=> {
-                      e.preventDefault();
-                      dispatch(countIncrement());
-                    }}
-                    >+</button>
-                </div>
+                <button 
+                  className={style.controller}
+                  onClick={(e)=> {
+                    e.preventDefault();
+                    dispatch(countDecrement());
+                  }}
+                  >-</button>
+                <div className={style.count}>{counter}</div>
+                <button 
+                  className={style.controller}
+                  onClick={(e)=> {
+                    e.preventDefault();
+                    dispatch(countIncrement());
+                  }}
+                  >+</button>
+              </div>
               <button 
                 className={style.btnCart}
                 onClick={(e)=> {
@@ -130,7 +130,7 @@ const GoodPage: FC = () => {
             </div>
             <div className={style.downloads}>
               <div className={style.downloadsImg}>
-                <img src={shareImg} alt="Знвчок переслать" />
+                <img src={shareImg} alt="Значок переслать" />
               </div>
               <div className={style.downloadsText}>
                 При покупке от <span className={style.textSpan}>10 000 ₸</span> бесплатная доставка по Кокчетаву и области

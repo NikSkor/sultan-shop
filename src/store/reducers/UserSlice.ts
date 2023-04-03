@@ -20,7 +20,7 @@ interface UserState {
       code: number,
       count: number
     }
-  ]
+  ],
 }
 
 const initialState: UserState = {
@@ -42,7 +42,7 @@ const initialState: UserState = {
       code: 1000000000002,
       count: 8
     }
-  ]
+  ],
 };
 
 export const userSlice = createSlice({
@@ -195,6 +195,38 @@ export const userSlice = createSlice({
     },
     cleanCounter(state){
       state.counter = 1;
+    },
+    cartCountIncrement(state, action: PayloadAction<number>) {
+      for (let i = 0; i< state.cart.length; i++) {
+        if(state.cart[i].code === action.payload) {
+          state.cart[i].count++;
+        }
+      }
+    },
+    cartCountDecrement(state, action: PayloadAction<number>) {
+      for (let i = 0; i< state.cart.length; i++) {
+        if(state.cart[i].code === action.payload) {
+          if (state.cart[i].count > 1){
+            state.cart[i].count--;
+          }
+        }
+      }
+    },
+    deleteGood(state, action: PayloadAction<number>) {
+      for (let i = 0; i< state.cart.length; i++) {
+        if(state.cart[i].code === action.payload) {
+          state.cart.splice(i, 1);
+          i -= 1;
+        }
+      }
+    },
+    clearCart(state) {
+      state.cart = [
+        {
+          code: 0,
+          count: 0
+        }
+      ]
     }
   }
 });

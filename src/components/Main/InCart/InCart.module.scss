@@ -28,4 +28,32 @@
   line-height: 120%;
   text-transform: uppercase;
   color: #111111;
+  margin-bottom: 50px;
+}
+
+.offerBlock {
+  display: flex;
+  justify-content: space-between;
+}
+
+.offerBtn {
+  background: #FFC85E;
+  border-radius: 79px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 19px;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: #FFFFFF;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 130%;
+  color: #111111;
 }
