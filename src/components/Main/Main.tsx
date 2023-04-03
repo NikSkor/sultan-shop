@@ -1,10 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import CategoriesNav from './CategoriesNav/CategoriesNav';
 import CategoriesSubNav from './CategoriesSubNav/CategoriesSubNav';
 import GoodsList from './GoodsList/GoodsList';
 import style from './Main.module.scss';
 import Selector from './Selector/Selector';
 import SortForm from './SortForm/SortForm';
-import catalog from '../../catalog.json';
 import Pagination from './Pagination/Pagination';
 import { useAppSelector } from '../../hooks/redux';
 
@@ -39,6 +39,11 @@ export default function Main() {
   const brandsArray = useAppSelector(state => state.userReducer.brandFilter);
   const minPrice = useAppSelector(state => state.userReducer.minPrice);
   const maxPrice = useAppSelector(state => state.userReducer.maxPrice);
+  const catalogBase = useAppSelector(state => state.userReducer.catalog);
+
+  let goodCatalog: ICatalog[] = [...catalogBase];
+
+
 
   const priceFilter = (catalog: ICatalog[], min: number, max: number) => {
     if (min === 0 && max === 0) return catalog;
@@ -50,12 +55,11 @@ export default function Main() {
       }
     });
 
-    console.log(newCatalog);
-
     return newCatalog;
   };
 
-  let goodsCatalog: ICatalog[] = priceFilter(catalog, minPrice, maxPrice);
+  let goodsCatalog: ICatalog[] = priceFilter(goodCatalog, minPrice, maxPrice);
+
 
   const brandsFilter = (catalog: ICatalog[], brandsArray: string[]) => {
     let newCatalog: ICatalog[] = [];
