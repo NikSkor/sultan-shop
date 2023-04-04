@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/sultan-shop/static/css/main.365f28fd.css",
+    "main.js": "/sultan-shop/static/js/main.4bf2e078.js",
+    "static/media/inter-v12-cyrillic_latin-700.woff": "/sultan-shop/static/media/inter-v12-cyrillic_latin-700.fde0b548bdfd88ac57cf.woff",
+    "static/media/inter-v12-cyrillic_latin-800.woff": "/sultan-shop/static/media/inter-v12-cyrillic_latin-800.0793544b3f1153cc5805.woff",
+    "static/media/inter-v12-cyrillic_latin-600.woff": "/sultan-shop/static/media/inter-v12-cyrillic_latin-600.5e2aa84562f3db1b1af8.woff",
+    "static/media/inter-v12-cyrillic_latin-500.woff": "/sultan-shop/static/media/inter-v12-cyrillic_latin-500.4753236838a93bb49962.woff",
+    "static/media/inter-v12-cyrillic_latin-300.woff": "/sultan-shop/static/media/inter-v12-cyrillic_latin-300.0c454e30c7f1f42a1db7.woff",
+    "static/media/inter-v12-cyrillic_latin-900.woff": "/sultan-shop/static/media/inter-v12-cyrillic_latin-900.51cec836f7c285b94ddc.woff",
+    "static/media/inter-v12-cyrillic_latin-regular.woff": "/sultan-shop/static/media/inter-v12-cyrillic_latin-regular.91db28991e6c1fc53e06.woff",
+    "static/media/inter-v12-cyrillic_latin-800.woff2": "/sultan-shop/static/media/inter-v12-cyrillic_latin-800.4de16c3a4863808cdd53.woff2",
+    "static/media/inter-v12-cyrillic_latin-700.woff2": "/sultan-shop/static/media/inter-v12-cyrillic_latin-700.5db734060b489f6a3891.woff2",
+    "static/media/inter-v12-cyrillic_latin-600.woff2": "/sultan-shop/static/media/inter-v12-cyrillic_latin-600.1b2f33f663cc523817a1.woff2",
+    "static/media/inter-v12-cyrillic_latin-500.woff2": "/sultan-shop/static/media/inter-v12-cyrillic_latin-500.c9f11a4b1948aac797ac.woff2",
+    "static/media/inter-v12-cyrillic_latin-300.woff2": "/sultan-shop/static/media/inter-v12-cyrillic_latin-300.d22c49d34a92a601b0fd.woff2",
+    "static/media/inter-v12-cyrillic_latin-900.woff2": "/sultan-shop/static/media/inter-v12-cyrillic_latin-900.b95aa58f7ce664a2bc2e.woff2",
+    "static/media/inter-v12-cyrillic_latin-regular.woff2": "/sultan-shop/static/media/inter-v12-cyrillic_latin-regular.b0a21561d96f6b662763.woff2",
+    "static/media/basket.svg": "/sultan-shop/static/media/basket.5511e0f24aba33a330a534e01795be8d.svg",
+    "static/media/delete.svg": "/sultan-shop/static/media/delete.9a8622158eebb6cebb7a8a49ebaa6629.svg",
+    "static/media/trash.svg": "/sultan-shop/static/media/trash.505cd641cfc621db297294b0e2861cfd.svg",
+    "static/media/share.svg": "/sultan-shop/static/media/share.c7ea557134a8977c1abbf2213e507dea.svg",
+    "static/media/letter.svg": "/sultan-shop/static/media/letter.04d92866ad0c655acca87d8171ed8896.svg",
+    "static/media/bottle.svg": "/sultan-shop/static/media/bottle.8954951c94a03caba659a0160febe828.svg",
+    "static/media/box.svg": "/sultan-shop/static/media/box.e36ec121e96c8b4f3ecef7ff069fd759.svg",
+    "static/media/point.svg": "/sultan-shop/static/media/point.d148b8d8689c3530f152b2dfc5c6dcb9.svg",
+    "static/media/catalog.svg": "/sultan-shop/static/media/catalog.4756189f8fb2f4cdf0b38c581c7033d8.svg",
+    "index.html": "/sultan-shop/index.html",
+    "static/media/arrow-download.svg": "/sultan-shop/static/media/arrow-download.11d3238f37bdb4da06fd293c2ccf77e4.svg",
+    "static/media/download.svg": "/sultan-shop/static/media/download.e7871a54009d32c25a9d6309214fe536.svg",
+    "static/media/arrow-left.svg": "/sultan-shop/static/media/arrow-left.8009929457bde0328f8f182170fd2c0f.svg",
+    "static/media/arrow-right.svg": "/sultan-shop/static/media/arrow-right.93ba4abe5846a231d455ec0417dd0a4b.svg",
+    "static/media/triangle.svg": "/sultan-shop/static/media/triangle.260e242d67fc23d29ab0.svg",
+    "main.365f28fd.css.map": "/sultan-shop/static/css/main.365f28fd.css.map",
+    "main.4bf2e078.js.map": "/sultan-shop/static/js/main.4bf2e078.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.365f28fd.css",
+    "static/js/main.4bf2e078.js"
+  ]
+}
