@@ -11,18 +11,9 @@ const SortForm: FC = () => {
   const brandsFilter = useAppSelector(state => state.userReducer.brand);
   const minPriceInput = useAppSelector(state => state.userReducer.minPriceInput);
   const maxPriceInput = useAppSelector(state => state.userReducer.maxPriceInput);
+  const brandList = useAppSelector(state => state.userReducer.brandArr);
 
-
-  let brandArr: string[] = [
-    'ARAVIA',
-    'BeautiX',
-    'DOMIX',
-    'KORA',
-    'MASLO MASLYANOE',
-    'HOLY BEAUTY',
-    'PUREDERM',
-    'New Line'
-  ];
+  let brandArr: string[] = [...brandList];
 
   const filterBrand = (brands: string[], name: string) => {
     if(name === '') return brands;

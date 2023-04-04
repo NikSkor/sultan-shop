@@ -13,9 +13,15 @@ interface ICatalog {
   price: number,
   type: string[]
 }
+interface ICatNav {
+  title: string,
+  id: string
+}
 
 interface UserState {
   catalog: ICatalog[],
+  brandArr: string[],
+  categories: ICatNav[],
   type: string,
   page: number,
   sort: string,
@@ -35,10 +41,67 @@ interface UserState {
       count: number
     }
   ],
+  editGood: number,
 }
 
 const initialState: UserState = {
   catalog: [],
+  brandArr: [
+    'ARAVIA',
+    'BeautiX',
+    'DOMIX',
+    'KORA',
+    'MASLO MASLYANOE',
+    'HOLY BEAUTY',
+    'PUREDERM',
+    'New Line'
+  ],
+  categories: [
+    {
+      title: 'Уход за телом',
+      id: 'body'
+    },
+    {
+      title: 'Уход за руками',
+      id: 'hands'
+    },
+    {
+      title: 'Уход за ногами',
+      id: 'foots'
+    },
+    {
+      title: 'Уход за лицом',
+      id: 'face'
+    },
+    {
+      title: 'Уход за волосами',
+      id: 'hair'
+    },
+    {
+      title: 'Средства для загара',
+      id: 'sun'
+    },
+    {
+      title: 'Средства для бритья',
+      id: 'shave'
+    },
+    {
+      title: 'Подарочные наборы',
+      id: 'gift'
+    },
+    {
+      title: 'Гигиеническая продукция',
+      id: 'intimate'
+    },
+    {
+      title: 'Гигиена полости рта',
+      id: 'mouth'
+    },
+    {
+      title: 'Бумажная продукция',
+      id: 'paper'
+    }
+  ],
   type: '',
   page: 1,
   sort: 'brand',
@@ -58,6 +121,7 @@ const initialState: UserState = {
       count: 0
     }
   ],
+  editGood: 0,
 };
 
 export const userSlice = createSlice({
@@ -246,6 +310,10 @@ export const userSlice = createSlice({
           count: 0
         }
       ]
+    },
+    setEditGood(state, action: PayloadAction<number>) {
+      state.editGood = 0;
+      state.editGood = action.payload;
     }
   }
 });

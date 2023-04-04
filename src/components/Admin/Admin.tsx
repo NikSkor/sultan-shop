@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate, useNavigation } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import style from './Admin.module.scss';
 import trashImg from "../../img/delete.svg";
@@ -26,6 +26,8 @@ const Admin: FC = () => {
   const catalogBase = useAppSelector(state => state.userReducer.catalog);
 
   const {catalogLoader} = userSlice.actions;
+  const {setEditGood} = userSlice.actions;
+
   const dispatch = useAppDispatch();
 
 
@@ -47,7 +49,15 @@ const Admin: FC = () => {
     localStorage.clear()
     localStorage.setItem('catalog', JSON.stringify(oldCatalog));
     dispatch(catalogLoader(oldCatalog));
-    // console.log(localStorage.catalog.length);
+  }
+
+  const navigate = useNavigate();
+
+  const editHandler = (e: any) => {
+    e.preventDefault();
+    // console.log(e.target.dataset.id);
+    dispatch(setEditGood(+e.target.dataset.id));
+    navigate('/edit')
   }
     
   return(
@@ -65,11 +75,11 @@ const Admin: FC = () => {
           {goodCatalog.map((item)=> {
             return <li key={item.barcode} className={style.item}>
                 <h4 className={style.itemTitle}>{`${item.brand} ${item.name}`}</h4>
-                <button className={style.redBtn} onClick={delHandler}>
-                  <p>Редактировать</p>
+                <button className={style.redBtn} onClick={editHandler}>
+                  <p data-id={item.barcode}>Редактировать</p>
                 </button>
                 <button className={style.delBtn} onClick={delHandler}>
-                  <img src={trashImg} data-id={item.barcode} alt="Значок очистки" />
+                  <img src={trashImg} data-id={item.barcode} alt="Значок очистки"/>
                 </button>
               </li>
           })}
