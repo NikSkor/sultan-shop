@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import style from './EditPage.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { userSlice } from '../../../store/reducers/UserSlice';
 
@@ -36,6 +36,8 @@ const EditPage: FC = () => {
   const dispatch = useAppDispatch();
 
   let goodCatalog: ICatalog[] = [...catalogBase];
+
+  let navigate = useNavigate();
 
   let getParams = (catalog: ICatalog[], barcode: number) => {
 
@@ -135,6 +137,8 @@ const EditPage: FC = () => {
     localStorage.clear()
     localStorage.setItem('catalog', JSON.stringify(goodCatalog));
     dispatch(catalogLoader(goodCatalog));
+
+    navigate('/admin');
   }
 
     
