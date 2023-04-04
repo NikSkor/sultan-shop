@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Link, Navigate, useNavigate, useNavigation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import style from './Admin.module.scss';
 import trashImg from "../../img/delete.svg";
@@ -84,6 +84,11 @@ const Admin: FC = () => {
               </li>
           })}
         </ul>
+        <Link to='/add'>
+          <button className={style.submit}>
+            Добавить
+          </button>
+        </Link>
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import style from './EditPage.module.scss';
+import style from './AddGood.module.scss';
 import { Link } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { userSlice } from '../../../store/reducers/UserSlice';
@@ -25,54 +25,27 @@ interface ICatNav {
 }
 
 
-const EditPage: FC = () => {
+const AddGood: FC = () => {
 
   const catalogBase = useAppSelector(state => state.userReducer.catalog);
-  const codeGood = useAppSelector(state => state.userReducer.editGood);
 
   const {catalogLoader} = userSlice.actions;
-  const {setEditGood} = userSlice.actions;
 
   const dispatch = useAppDispatch();
 
   let goodCatalog: ICatalog[] = [...catalogBase];
 
-  let getParams = (catalog: ICatalog[], barcode: number) => {
 
-    let object: ICatalog = {
-      url: '',
-      name: '',
-      sizeType: '',
-      size: 0,
-      barcode: 0,
-      manufacturer: '',
-      brand: '',
-      description: '',
-      price: 0,
-      type: []
-    };
-
-
-    catalog.forEach((item)=> {
-      if(item.barcode === barcode) {
-        Object.assign(object, item);
-      }
-    })
-    return object;
-  }
-
-  let goodParam: ICatalog = getParams(catalogBase, codeGood);
-
-  const [url, setUrl] = useState(goodParam.url);
-  const [name, setName] = useState(goodParam.name);
-  const [sizeType, setSizeType] = useState(goodParam.sizeType);
-  const [size, setSize] = useState(goodParam.size);
-  const [barcode, setBarcode] = useState(goodParam.barcode);
-  const [manufacturer, setManufacturer] = useState(goodParam.manufacturer);
-  const [brand, setBrand] = useState(goodParam.brand);
-  const [description, setDescription] = useState(goodParam.description);
-  const [price, setPrice] = useState(goodParam.price);
-  const [type, setType] = useState(goodParam.type);
+  const [url, setUrl] = useState('https://di9mr54a05a64.cloudfront.net/noimage.png');
+  const [name, setName] = useState('Продукт');
+  const [sizeType, setSizeType] = useState('мл');
+  const [size, setSize] = useState(0);
+  const [barcode, setBarcode] = useState(1000000000000);
+  const [manufacturer, setManufacturer] = useState('Страна');
+  const [brand, setBrand] = useState('ARAVIA');
+  const [description, setDescription] = useState('Описание');
+  const [price, setPrice] = useState(0);
+  const [type, setType] = useState(['body']);
 
 
   const brandList = useAppSelector(state => state.userReducer.brandArr);
@@ -109,7 +82,7 @@ const EditPage: FC = () => {
     e.preventDefault();
 
     let object: ICatalog = {
-      url: url,
+      url: (url !== '') ? url : 'https://di9mr54a05a64.cloudfront.net/noimage.png',
       name: name,
       sizeType: sizeType,
       size: size,
@@ -120,15 +93,6 @@ const EditPage: FC = () => {
       price: price,
       type: type
     };
-
-    
-
-    for (let i = 0; i < goodCatalog.length; i++) {
-      if (goodCatalog[i].barcode === codeGood) {
-        goodCatalog.splice(i, 1);
-        i -= 1;
-      } 
-    }
 
     goodCatalog.push(object);
 
@@ -151,7 +115,6 @@ const EditPage: FC = () => {
           <li className={style.navItem}>Редактирование товара</li>
 
         </ul>
-        <h2 className={style.title}>{`${goodParam.brand} ${goodParam.name}`}</h2>
 
         <div className={style.form}>
           <label className={style.label} data-id='url'>
@@ -208,16 +171,15 @@ const EditPage: FC = () => {
           </label>
         </div>
       <button className={style.submit} onClick={(e) => {submitHandler(e)}}>Сохранить</button>
-        <Link to='/admin' onClick={() => {
-        dispatch(setEditGood(0));
-        }}>
+      <Link to='/admin'>
         <button className={style.submit}>
           Назад
         </button>
       </Link>
+      
       </div>
     </div>
   )
 }
 
-export default EditPage;
+export default AddGood;

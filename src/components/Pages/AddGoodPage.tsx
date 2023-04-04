@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
-import EditPage from '../Admin/EditPage/EditPage';
+import AddGood from '../Admin/AddGood/AddGood';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 
 
-const EditGood: FC = () => {
+
+const AddGoodPage: FC = () => {
   window.scrollTo({
       top: 0,
       left: 0,
@@ -14,10 +15,10 @@ const EditGood: FC = () => {
   return (
     <>
       <Header/>
-        <EditPage/>
+        <AddGood/>
       <Footer/>
     </>
   )
 }
 
-export default EditGood;
+export default AddGoodPage;

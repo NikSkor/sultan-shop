@@ -9,6 +9,7 @@ import { userSlice } from './store/reducers/UserSlice';
 import { useAppDispatch } from './hooks/redux';
 import AdminPage from './components/Pages/AdminPage';
 import EditGood from './components/Pages/EditGood';
+import AddGoodPage from './components/Pages/AddGoodPage';
 
 interface ICatalog {
   [index: string]: string | number | string[],
@@ -61,6 +62,7 @@ const App = () => {
         <Route path='/cart' element={<CartPage/>}/>
         <Route path='/admin' element={<AdminPage/>}/>
         <Route path='/edit' element={<EditGood/>}/>
+        <Route path='/add' element={<AddGoodPage/>}/>
       </Routes>
     </BrowserRouter>
   )
