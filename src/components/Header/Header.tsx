@@ -44,14 +44,13 @@ const Header: FC = () => {
       </div>
       <div className={style.downline}>
         <div className={`container ${style.downlineBody}`}>
-          <Logo/>
-          <div className={style.goods}>
+          
+          {/* <div className={style.goods}> */}
+            <Logo/>
             <HeaderBtn text='Каталог'>
               <img className={style.icon} src={catalogImg} alt="Значок каталога" />
             </HeaderBtn>
             <Search isDisabled={true}/>
-          </div>
-          <div className={style.userService}>
             <Support telColor='#111111' textColor='#3F4E65' alItems='flex-end'>
               <div className={style.imgContainer}>
                 <img className={style.img} src={callBackImg} alt="Изображение оператора технической поддержки" />
@@ -61,7 +60,10 @@ const Header: FC = () => {
               <img className={style.icon} src={downloadImg} alt="Значок прайс листа" />
             </HeaderBtn>
             <Cart/>
-          </div>
+          {/* </div> */}
+          {/* <div className={style.userService}>
+            
+          </div> */}
         </div>
         </div>
       </section>

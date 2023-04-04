@@ -13,7 +13,7 @@
 
 .contacts {
   display: flex;
-  gap: 40px;
+  gap: 20px;
   color: #111111;
 }
 
@@ -32,15 +32,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  // height: 59px;
+  gap: 5px;
+  width: -webkit-fill-available;
+  width: fill-available;
   // flex-wrap: nowrap;
 }
 
-.goods {
-  display: flex;
-  gap: 15px;
-  // width: 480px;
+// .goods {
+//   display: flex;
+//   gap: 15px;
+//   // width: 480px;
+//   justify-content: space-between;
+//   align-items: center;
 
-}
+// }
 
 .userService {
   display: flex;
@@ -58,4 +64,8 @@
   position: absolute;
   max-height: 92px;
   bottom: -8px;
+}
+
+.nav {
+  // justify-content: flex-end;
 }
