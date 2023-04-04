@@ -1,4 +1,13 @@
+@import '../../../vars.scss';
+
 .logo {
   width: 156px;
   height: 66px;
+
+  @include tablet {
+    grid-area: logo;
+    width: 97px;
+    height: 41px;
+  }
+  
 }

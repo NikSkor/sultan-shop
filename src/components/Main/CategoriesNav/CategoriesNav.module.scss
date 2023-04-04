@@ -1,8 +1,18 @@
+@import '../../../vars.scss';
 .categoriesList {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
 
+  @include laptop {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @include tablet {
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
 }
 
 .categoriesItem {

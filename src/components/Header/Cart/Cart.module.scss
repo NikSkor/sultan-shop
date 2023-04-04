@@ -1,7 +1,13 @@
+@import '../../../vars.scss';
+
 .cartBlock {
   display: flex;
   gap: 24px;
   align-items: center;
+  
+  @include tablet {
+    grid-area: cart;
+  }
 }
 
 .svg {
@@ -11,6 +17,10 @@
 .imgContainer {
   width: 40px;
   position: relative;
+
+  @include tablet {
+      width: 32px;
+    }
 }
 
 .info {
@@ -23,6 +33,10 @@
   font-size: 12px;
   line-height: 150%;
   color: #3F4E65;
+
+  @include tablet {
+    display: none;
+  }
 }
 
 .cost {
@@ -32,6 +46,10 @@
   color: #111111;
   display: flex;
   gap: 4px;
+
+  @include tablet {
+    display: none;
+  }
 }
 
 .counter {

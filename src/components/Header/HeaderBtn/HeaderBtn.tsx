@@ -3,12 +3,14 @@ import style from './HeaderBtn.module.scss';
 
 interface BtnProps {
   text: string,
-  children: React.ReactNode
+  children: React.ReactNode,
+  isPrice?: boolean,
+  isHeader?: boolean
 }
 
-const HeaderBtn: FC<BtnProps> = ({text, children}) => {
+const HeaderBtn: FC<BtnProps> = ({text, children, isPrice, isHeader}) => {
   return (
-    <button className={style.btn}>
+    <button className={`${style.btn} ${isPrice === true ? style.price : ''} ${isHeader === true ? style.btnCatalog : ''}`}>
       <div className={style.text}>{text}</div>
       {children}
     </button>

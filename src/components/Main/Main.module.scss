@@ -1,3 +1,5 @@
+@import '../../vars.scss';
+
 .navList {
   margin-top: 45px;
   display: flex;
@@ -31,6 +33,16 @@
   line-height: 120%;
   text-transform: uppercase;
   color: #111111;
+
+  @include laptop {
+    font-size: 26px;
+  }
+
+  @include tablet {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 120%;
+  }
 }
 
 .contentBlock {
@@ -41,12 +53,19 @@
   justify-content: flex-start;
   gap: 100px;
 
+  @include tablet {
+    gap: 10px;
+  }
 }
 
 .sort {
   flex-basis: 20%;
   display: flex;
   flex-direction: column;
+
+  @include mobile {
+    display: none;
+  }
 }
 
 .goods {

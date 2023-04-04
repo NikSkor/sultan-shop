@@ -1,6 +1,15 @@
+@import '../../../vars.scss';
 .supportBlock {
   display: flex;
   gap: 14px;
+
+  
+}
+
+.supportBlockHeader {
+  @include laptop {
+    display: none;
+  }
 }
 
 .info {

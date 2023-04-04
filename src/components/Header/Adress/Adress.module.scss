@@ -1,8 +1,14 @@
+@import '../../../vars.scss';
+
 .block {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 15px;
+
+  @include laptop {
+    display: none;  
+  }
 }
 
 .info {

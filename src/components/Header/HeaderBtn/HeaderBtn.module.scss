@@ -1,5 +1,7 @@
+@import '../../../vars.scss';
+
 .btn {
-  background: #FFC85E;
+  background-color: #FFC85E;
   border-radius: 79px;
   display: flex;
   flex-direction: row;
@@ -13,6 +15,33 @@
   color: #FFFFFF;
   flex-wrap: nowrap;
   min-width: 192px;
-  // max-height: 59px;
   cursor: pointer;
+
+  
+}
+
+.btnCatalog {
+  @include tablet {
+    background-color: transparent;
+    color: #3F4E65;
+    flex-direction: row-reverse;
+    align-items: center;
+    grid-area: catalog;
+    min-width: none;
+  }
+}
+
+.price{
+  @include laptop {
+      display: none;
+    }
+}
+
+.text {
+  @include tablet {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+  }
 }

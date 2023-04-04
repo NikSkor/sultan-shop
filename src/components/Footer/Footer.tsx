@@ -75,7 +75,7 @@ const Footer: FC = () => {
           <div className={style.contacts}>
             <h2 className={style.contactsTitle}>Контакты:</h2>
             <Support telColor='#FFFFFF' textColor='#FFFFFF' alItems='flex-start'/>
-            <Mail 
+            <Mail
               href='opt.sultan@mail.ru' 
               description='На связи в любое время'
               titleColor='#FFFFFF' descrColor='#FFFFFF'

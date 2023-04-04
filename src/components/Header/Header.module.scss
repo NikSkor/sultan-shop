@@ -1,3 +1,4 @@
+@import '../../vars.scss';
 .upline {
   border-bottom: 1px solid rgba(63, 78, 101, .2);
 }
@@ -9,6 +10,14 @@
   gap: 40px;
   padding-top: 14px;
   padding-bottom: 14px;
+
+  @include laptop {
+    justify-content: center;
+  }
+
+  @include tablet {
+    display: none;
+  }
 }
 
 .contacts {
@@ -20,33 +29,37 @@
 .icon {
   width: 15px;
   height: 15px;
+  // border: 1px solid black;
 }
 
 .downline {
   padding-top: 24px;
   padding-bottom: 24px;
   border-bottom: 1px solid rgba(63, 78, 101, .2);
+
+  @include tablet {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
 
 .downlineBody {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // height: 59px;
   gap: 5px;
   width: -webkit-fill-available;
   width: fill-available;
-  // flex-wrap: nowrap;
+
+    @include tablet {
+      display: grid;
+      grid-template-areas: 
+      'menu . logo . cart'
+      '. catalog . search .'
+      ;
+    }
 }
 
-// .goods {
-//   display: flex;
-//   gap: 15px;
-//   // width: 480px;
-//   justify-content: space-between;
-//   align-items: center;
-
-// }
 
 .userService {
   display: flex;
@@ -68,4 +81,14 @@
 
 .nav {
   // justify-content: flex-end;
+}
+
+.sandwichBtn {
+  display: none;
+
+  @include tablet {
+    display: block;
+    grid-area: menu;
+    
+  }
 }

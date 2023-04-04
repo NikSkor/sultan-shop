@@ -1,15 +1,16 @@
+@import '../../../vars.scss';
+
 .form {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 13px 10px 13px 20px;
-    gap: 10px;
-    background-color: #EDEDED;
-    border-radius: 36px;
-    height: 59px;
-    // height: 59px;
-    // width: 263px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 10px 13px 20px;
+  gap: 10px;
+  background-color: #EDEDED;
+  border-radius: 36px;
+  height: 59px;
+    
 }
 .searchInput {
   border: none;
@@ -23,4 +24,66 @@
 
 .btn {
   cursor: pointer;
+  color: #ffffff;
+}
+
+.rect {
+  fill: #FFC85E;
+}
+
+.text {
+  display: none;
+}
+
+.textHeader {
+  @include tablet {
+    display: block;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    color: #3F4E65;
+  }
+}
+
+.frmHeader {
+  @include tablet {
+    background: transparent;
+    justify-content: center;
+    flex-direction: row-reverse;
+    gap: 0;
+    grid-area: search;
+  }
+}
+
+.searchInputHeader {
+  @include tablet {
+    display: none;
+  }
+}
+
+.btnHeader {
+  @include tablet {
+    fill: transparent;
+    // stroke: #3F4E65;
+
+  }
+}
+
+.rectHeader {
+  @include tablet {
+    fill: transparent;
+  }
+}
+
+.pathHeader {
+  @include tablet {
+    fill: transparent;
+    stroke: #3F4E65;
+  }
+}
+
+.svgHeader {
+  @include tablet {
+      fill: transparent;
+    }
 }
