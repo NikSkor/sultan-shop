@@ -40,10 +40,10 @@ export default function Main() {
   const minPrice = useAppSelector(state => state.userReducer.minPrice);
   const maxPrice = useAppSelector(state => state.userReducer.maxPrice);
   const catalogBase = useAppSelector(state => state.userReducer.catalog);
+  const categoriesList = useAppSelector(state => state.userReducer.categories);
 
+  const categories: ICatNav[] = [...categoriesList];
   let goodCatalog: ICatalog[] = [...catalogBase];
-
-
 
   const priceFilter = (catalog: ICatalog[], min: number, max: number) => {
     if (min === 0 && max === 0) return catalog;
@@ -163,53 +163,6 @@ export default function Main() {
     {
       title: 'toUp',
       value: 'По возрастанию'
-    }
-  ];
-
-  const categories: ICatNav[]= [
-    {
-      title: 'Уход за телом',
-      id: 'body'
-    },
-    {
-      title: 'Уход за руками',
-      id: 'hands'
-    },
-    {
-      title: 'Уход за ногами',
-      id: 'foots'
-    },
-    {
-      title: 'Уход за лицом',
-      id: 'face'
-    },
-    {
-      title: 'Уход за волосами',
-      id: 'hair'
-    },
-    {
-      title: 'Средства для загара',
-      id: 'sun'
-    },
-    {
-      title: 'Средства для бритья',
-      id: 'shave'
-    },
-    {
-      title: 'Подарочные наборы',
-      id: 'gift'
-    },
-    {
-      title: 'Гигиеническая продукция',
-      id: 'intimate'
-    },
-    {
-      title: 'Гигиена полости рта',
-      id: 'mouth'
-    },
-    {
-      title: 'Бумажная продукция',
-      id: 'paper'
     }
   ];
 

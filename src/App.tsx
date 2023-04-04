@@ -8,6 +8,8 @@ import CartPage from './components/Pages/CartPage';
 import { userSlice } from './store/reducers/UserSlice';
 import { useAppDispatch } from './hooks/redux';
 import AdminPage from './components/Pages/AdminPage';
+import EditGood from './components/Pages/EditGood';
+import AddGoodPage from './components/Pages/AddGoodPage';
 
 interface ICatalog {
   [index: string]: string | number | string[],
@@ -54,11 +56,13 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path='*' element={<Catalog/>}/>
-        {catalog.map((item)=> {
+        {inCatalog.map((item)=> {
           return <Route key={item.barcode} path={`/good=${item.barcode}`} element={<Good/>}/>
         })}
         <Route path='/cart' element={<CartPage/>}/>
         <Route path='/admin' element={<AdminPage/>}/>
+        <Route path='/edit' element={<EditGood/>}/>
+        <Route path='/add' element={<AddGoodPage/>}/>
       </Routes>
     </BrowserRouter>
   )

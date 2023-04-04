@@ -24,44 +24,40 @@
 
 .title {
   font-weight: 500;
-  font-size: 40px;
+  font-size: 24px;
   line-height: 120%;
-  text-transform: uppercase;
   color: #111111;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
-.subTitle {
-  font-weight: 600;
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-.list {
+.form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 
-.item {
+.label {
   display: flex;
   align-items: center;
-  gap: 50px;
-}
-
-.itemTitle {
-  font-weight: 500;
+  gap: 20px;
+  font-weight: 400;
   font-size: 16px;
-  width: 800px;
+  line-height: 120%;
+  color: #111111;
 }
 
-.redBtn {
-  font-weight: 500;
-  font-size: 12px;
+.select {
+  appearance: none;
+  // overflow: hidden;
 }
 
-.delBtn {
-  width: 40px;
+.inputs {
+  width: 100%;
+}
+
+.textArea {
+  width: 100%;
+  resize: none;
 }
 
 .submit {
@@ -72,6 +68,7 @@
   justify-content: center;
   align-items: center;
   padding: 10px 19px;
+  gap: 12px;
   font-weight: 700;
   font-size: 14px;
   line-height: 17px;
