@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Adress.tsx component renders props correctly, falsy values 1`] = `
+<div
+  className="block"
+>
+  <div
+    className="info"
+  >
+    <div
+      className="title"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+    />
+    <div
+      className="description"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Adress.tsx component renders props correctly, truthy values 1`] = `
+<div
+  className="block"
+>
+  <div
+    className="info"
+  >
+    <div
+      className="title"
+      style={
+        Object {
+          "color": "#111111",
+        }
+      }
+    >
+      г. Кокчетав, ул. Ж. Ташенова 129Б
+    </div>
+    <div
+      className="description"
+      style={
+        Object {
+          "color": "#3F4E65",
+        }
+      }
+    >
+      (Рынок Восточный)
+    </div>
+  </div>
+</div>
+`;

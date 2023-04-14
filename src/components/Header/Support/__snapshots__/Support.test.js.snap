@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test of support component button call back 1`] = `
+<button
+  class="callBack"
+>
+  Заказать звонок
+</button>
+`;
+
+exports[`test of support component telephone 1`] = `
+<a
+  class="tel"
+  href="tel:+77774900091"
+>
+  +7 (777) 490-00-91
+</a>
+`;
+
+exports[`test of support component work time 1`] = `
+<p
+  class="workTime"
+>
+  время работы: 9:00-20:00
+</p>
+`;

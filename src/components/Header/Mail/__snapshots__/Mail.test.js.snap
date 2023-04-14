@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Mail.tsx component renders props correctly, falsy values 1`] = `
+<div
+  className="block"
+>
+  <div
+    className="info"
+  >
+    <a
+      className="title"
+      href="mailto:undefined"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+    />
+    <div
+      className="description"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Mail.tsx component renders props correctly, truthy values 1`] = `
+<div
+  className="block blockHeader"
+>
+  <div
+    className="info"
+  >
+    <a
+      className="title"
+      href="mailto:opt.sultan@mail.ru"
+      style={
+        Object {
+          "color": "#111111",
+        }
+      }
+    >
+      opt.sultan@mail.ru
+    </a>
+    <div
+      className="description"
+      style={
+        Object {
+          "color": "#3F4E65",
+        }
+      }
+    >
+      На связи в любое время
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Mail.tsx href role 1`] = `
+<a
+  class="title"
+  href="mailto:undefined"
+/>
+`;

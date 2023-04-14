@@ -18,7 +18,7 @@ import sandwichBtn from '../../img/sandwich.svg';
 const Header: FC = () => {
 
   return (
-    <section className={style.headerBlock}>
+    <section className={style.headerBlock} id='testHeader'>
       <div className={style.upline}>
         <div className={`container ${style.uplineBody}`}>
           <div className={style.contacts}>
