@@ -32,6 +32,10 @@ exports[`Mail.tsx component renders props correctly, truthy values 1`] = `
 <div
   className="block blockHeader"
 >
+  <img
+    alt="Значок почты"
+    src="letter.png"
+  />
   <div
     className="info"
   >

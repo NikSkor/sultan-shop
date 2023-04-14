@@ -8,22 +8,23 @@ import shareImg from '../../../img/share.svg';
 import arrowImg from '../../../img/arrow-download.svg';
 import { Link } from 'react-router-dom';
 import { userSlice } from '../../../store/reducers/UserSlice';
+import { ICatalog } from '../../../interfaces/interfaces';
 
 
 
-interface ICatalog {
-  [index: string]: string | number | string[],
-  url: string,
-  name: string,
-  sizeType: string,
-  size: number,
-  barcode: number,
-  manufacturer: string,
-  brand: string,
-  description: string,
-  price: number,
-  type: string[]
-}
+// interface ICatalog {
+//   [index: string]: string | number | string[],
+//   url: string,
+//   name: string,
+//   sizeType: string,
+//   size: number,
+//   barcode: number,
+//   manufacturer: string,
+//   brand: string,
+//   description: string,
+//   price: number,
+//   type: string[]
+// }
 
 const GoodPage: FC = () => {
 

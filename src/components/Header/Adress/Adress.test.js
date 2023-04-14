@@ -5,7 +5,7 @@ import Adress from '../Adress/Adress.tsx';
 afterEach(cleanup);
 
   describe('Adress.tsx', () => {
-    it('component renders props correctly, truthy values', () => {
+    test('component renders props correctly, truthy values', () => {
       const tree = renderer
         .create(
           <Adress
@@ -18,7 +18,7 @@ afterEach(cleanup);
         .toJSON();
       expect(tree).toMatchSnapshot();
     });
-    it('component renders props correctly, falsy values', () => {
+    test('component renders props correctly, falsy values', () => {
       const tree = renderer.create(<Adress />).toJSON();
       expect(tree).toMatchSnapshot();
     });

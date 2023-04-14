@@ -6,25 +6,26 @@ import cartImg from '../../../../img/basket.svg';
 import { userSlice } from '../../../../store/reducers/UserSlice';
 import { useAppDispatch } from '../../../../hooks/redux';
 import { Link } from 'react-router-dom';
+import { ICategory } from '../../../../interfaces/interfaces';
 
 
-interface ICategory {
-  option: ICatalog
-}
-interface ICatalog {
-  url: string,
-  name: string,
-  sizeType: string,
-  size: number,
-  barcode: number,
-  manufacturer: string,
-  brand: string,
-  description: string,
-  price: number,
-  type: string[]
-}
+// interface ICategory {
+//   option: ICatalog
+// }
+// interface ICatalog {
+//   url: string,
+//   name: string,
+//   sizeType: string,
+//   size: number,
+//   barcode: number,
+//   manufacturer: string,
+//   brand: string,
+//   description: string,
+//   price: number,
+//   type: string[]
+// }
 
-const GoodCard: FC<ICategory> = ({option}) => {
+const GoodCard: FC<ICategory> = ({options}) => {
 
   const {openGood} = userSlice.actions;
   const {addToCartOnCard} = userSlice.actions;
@@ -34,20 +35,20 @@ const GoodCard: FC<ICategory> = ({option}) => {
 
   return (
     <li className={style.item}>
-      <img src={option.url} alt="Фото товара" className={style.goodsImg}/>
+      <img src={options.url} alt="Фото товара" className={style.goodsImg}/>
       <div className={style.sizeBlock}>
-        <img src={option.sizeType === 'мл' ? bottleImg : boxImg} 
+        <img src={options.sizeType === 'мл' ? bottleImg : boxImg} 
         alt="Значок тары" />
         <p className={style.sizeText}>
-          {`${option.size} ${option.sizeType}`}
+          {`${options.size} ${options.sizeType}`}
         </p>
       </div>
       <button className={style.goodTitle} onClick={()=> {
-        dispatch(openGood(option.barcode));
+        dispatch(openGood(options.barcode));
       }}>
-      <Link to={`/good=${option.barcode}`}>
+      <Link to={`/good=${options.barcode}`}>
         <h4 className={style.goodName}>
-          {`${option.brand} ${option.name}`}
+          {`${options.brand} ${options.name}`}
         </h4>
       </Link>
       </button>
@@ -55,25 +56,25 @@ const GoodCard: FC<ICategory> = ({option}) => {
         <ul className={style.detailsList}>
           <li className={style.detailsItem}>
             <p className={style.detailsName}>Штрихкод:</p>
-            <p className={style.detailsValue}>{option.barcode}</p>
+            <p className={style.detailsValue}>{options.barcode}</p>
           </li>
           <li className={style.detailsItem}>
             <p className={style.detailsName}>Производитель:</p>
-            <p className={style.detailsValue}>{option.manufacturer}</p>
+            <p className={style.detailsValue}>{options.manufacturer}</p>
           </li>
           <li className={style.detailsItem}>
             <p className={style.detailsName}>Брэнд:</p>
-            <p className={style.detailsValue}>{option.brand}</p>
+            <p className={style.detailsValue}>{options.brand}</p>
           </li>
         </ul>
       </div>
       <div className={style.priceBlock}>
-        <p className={style.price}>{`${option.price} ₸`}</p>
+        <p className={style.price}>{`${options.price} ₸`}</p>
         <button 
           className={style.btnCart}
           onClick={(e)=> {
             e.preventDefault();
-            dispatch(addToCartOnCard(option.barcode));
+            dispatch(addToCartOnCard(options.barcode));
           }}
           >
           <p>В корзину</p>

@@ -8,6 +8,106 @@ exports[`test of support component button call back 1`] = `
 </button>
 `;
 
+exports[`test of support component component renders props correctly, falsy values 1`] = `
+<div
+  className="supportBlock"
+>
+  <div
+    className="info"
+    style={
+      Object {
+        "alignItems": undefined,
+      }
+    }
+  >
+    <a
+      className="tel"
+      href="tel:+77774900091"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+    >
+      +7 (777) 490-00-91
+    </a>
+    <p
+      className="workTime"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+    >
+      время работы: 9:00-20:00
+    </p>
+    <button
+      className="callBack"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+    >
+      Заказать звонок
+    </button>
+  </div>
+</div>
+`;
+
+exports[`test of support component component renders props correctly, truthy values 1`] = `
+<div
+  className="supportBlock supportBlockHeader"
+>
+  <div
+    className="info"
+    style={
+      Object {
+        "alignItems": undefined,
+      }
+    }
+  >
+    <a
+      className="tel"
+      href="tel:+77774900091"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+    >
+      +7 (777) 490-00-91
+    </a>
+    <p
+      className="workTime"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+    >
+      время работы: 9:00-20:00
+    </p>
+    <button
+      className="callBack"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+    >
+      Заказать звонок
+    </button>
+  </div>
+  <div>
+    <img
+      alt="Изображение оператора технической поддержки"
+      src="callBack.png"
+    />
+  </div>
+</div>
+`;
+
 exports[`test of support component telephone 1`] = `
 <a
   class="tel"

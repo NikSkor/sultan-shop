@@ -2,15 +2,16 @@ import React, { FC } from 'react';
 import { useAppDispatch } from '../../../hooks/redux';
 import { userSlice } from '../../../store/reducers/UserSlice';
 import style from './CategoriesSubNav.module.scss';
+import { ICategories } from '../../../interfaces/interfaces';
 
-interface ICatNav {
-  title: string,
-  id: string
-}
+// interface ICatNav {
+//   title: string,
+//   id: string
+// }
 
-interface ICategories {
-  options: ICatNav[]
-}
+// interface ICategories {
+//   options: ICatNav[]
+// }
 
 
 const CategoriesSubNav: FC<ICategories> = ({options}) => {

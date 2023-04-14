@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test of headerBtn component component renders props correctly, falsy values 1`] = `
+<button
+  className="btn  "
+>
+  <div
+    className="text"
+  />
+</button>
+`;
+
+exports[`test of headerBtn component component renders props correctly, truthy values 1`] = `
+<button
+  className="btn  "
+>
+  <div
+    className="text"
+  >
+    Список
+  </div>
+  <img
+    alt="Значок прайс листа"
+    src="basket.svg"
+  />
+</button>
+`;

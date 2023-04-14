@@ -2,25 +2,26 @@ import React, { FC } from 'react';
 import { useAppSelector } from '../../../hooks/redux';
 import style from './Cart.module.scss';
 import { useNavigate } from 'react-router-dom';
+import { ICart, ICatalog } from '../../../interfaces/interfaces';
 
-interface ICart {
-  code: number,
-  count: number
-}
+// interface ICart {
+//   code: number,
+//   count: number
+// }
 
-interface ICatalog {
-  [index: string]: string | number | string[],
-  url: string,
-  name: string,
-  sizeType: string,
-  size: number,
-  barcode: number,
-  manufacturer: string,
-  brand: string,
-  description: string,
-  price: number,
-  type: string[]
-}
+// interface ICatalog {
+//   [index: string]: string | number | string[],
+//   url: string,
+//   name: string,
+//   sizeType: string,
+//   size: number,
+//   barcode: number,
+//   manufacturer: string,
+//   brand: string,
+//   description: string,
+//   price: number,
+//   type: string[]
+// }
 
 const Cart: FC = () => {
 

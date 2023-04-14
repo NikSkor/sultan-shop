@@ -5,32 +5,33 @@ import bottleImg from '../../../../img/bottle.svg';
 import boxImg from '../../../../img/box.svg';
 import { userSlice } from '../../../../store/reducers/UserSlice';
 import trashImg from "../../../../img/trash.svg";
+import { ICart, ICatalog, ICategory } from '../../../../interfaces/interfaces';
 
-interface ICategory {
-  options: ICatalog
-}
+// interface ICategory {
+//   options: ICatalog
+// }
 
-interface ICart {
-  code: number,
-  count: number
-}
+// interface ICart {
+//   code: number,
+//   count: number
+// }
 
-interface ICatalog {
-  url: string,
-  name: string,
-  sizeType: string,
-  size: number,
-  barcode: number,
-  manufacturer: string,
-  brand: string,
-  description: string,
-  price: number,
-  type: string[]
-}
+// interface ICatalog {
+//   url: string,
+//   name: string,
+//   sizeType: string,
+//   size: number,
+//   barcode: number,
+//   manufacturer: string,
+//   brand: string,
+//   description: string,
+//   price: number,
+//   type: string[]
+// }
 
 const CartItem: FC<ICategory> = ({options}) => {
   const cart = useAppSelector(state => state.userReducer.cart);
-  let counter = useAppSelector(state => state.userReducer.counter);
+  // let counter = useAppSelector(state => state.userReducer.counter);
 
     let cartPrice = (catalog: ICatalog, cart: ICart[]) => {
     let price: number = 0;

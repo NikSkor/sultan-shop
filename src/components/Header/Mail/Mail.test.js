@@ -1,6 +1,7 @@
 import { cleanup, render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import Mail from '../Mail/Mail.tsx';
+import letterImg from '../../../img/letter.png';
 
 afterEach(cleanup);
 
@@ -14,7 +15,9 @@ describe('Mail.tsx', () => {
           description='На связи в любое время'
           titleColor='#111111'
           descrColor='#3F4E65'
-        />
+        >
+          <img src={letterImg} alt='Значок почты' />
+        </Mail>
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
@@ -26,8 +29,8 @@ describe('Mail.tsx', () => {
 
   test('href role', ()=> {
     render(<Mail />);
-    const btn = screen.getByRole('link');
-    expect(btn).toBeInTheDocument();
-    expect(btn).toMatchSnapshot();
+    const link = screen.getByRole('link');
+    expect(link).toBeInTheDocument();
+    expect(link).toMatchSnapshot();
   })
 });
