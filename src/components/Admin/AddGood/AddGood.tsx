@@ -3,26 +3,27 @@ import style from './AddGood.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { userSlice } from '../../../store/reducers/UserSlice';
+import { ICatNav, ICatalog } from '../../../interfaces/interfaces';
 
 
-interface ICatalog {
-  [index: string]: string | number | string[],
-  url: string,
-  name: string,
-  sizeType: string,
-  size: number,
-  barcode: number,
-  manufacturer: string,
-  brand: string,
-  description: string,
-  price: number,
-  type: string[]
-}
+// interface ICatalog {
+//   [index: string]: string | number | string[],
+//   url: string,
+//   name: string,
+//   sizeType: string,
+//   size: number,
+//   barcode: number,
+//   manufacturer: string,
+//   brand: string,
+//   description: string,
+//   price: number,
+//   type: string[]
+// }
 
-interface ICatNav {
-  title: string,
-  id: string
-}
+// interface ICatNav {
+//   title: string,
+//   id: string
+// }
 
 
 const AddGood: FC = () => {
@@ -107,14 +108,14 @@ const AddGood: FC = () => {
 
     
   return(
-    <div className={style.page}>
+    <div className={style.page} data-testid='testAddGoodPage'>
       <div className='container'>
         <ul className={style.navList}>
           <li className={style.navItem}>
             <Link to='/*'>Главная</Link>
             </li>
           <li className={style.navItem}>
-            <Link to='/admin'>Администратор</Link>
+            <Link data-testid='testLinkBack' to='/admin'>Администратор</Link>
             </li>
           <li className={style.navItem}>Редактирование товара</li>
 
@@ -123,7 +124,7 @@ const AddGood: FC = () => {
         <div className={style.form}>
           <label className={style.label} data-id='url'>
             Ссылка на картинку:
-            <input className={style.inputs} type='text' value={url} onChange={(e) => {setUrl(e.target.value)}}/>
+            <input className={style.inputs} data-testid='testUrl' type='text' value={url} onChange={(e) => {setUrl(e.target.value)}}/>
           </label>
           <label className={style.label} data-id='name'>
             Название:
@@ -131,7 +132,7 @@ const AddGood: FC = () => {
           </label>
           <label className={style.label} data-id='syzeType'>
             Тип размера:
-            <select value={sizeType} onChange={(e) => {setSizeType(e.target.value)}}>
+            <select value={sizeType} data-testid='testSelect' onChange={(e) => {setSizeType(e.target.value)}}>
               <option value="мл">мл</option>
               <option value="г">г</option>
             </select>
@@ -143,7 +144,7 @@ const AddGood: FC = () => {
           </label>
           <label className={style.label} data-id='barcode'>
             Штрихкод 13 цифр:
-            <input className={style.inputs} type='number' value={barcode} onChange={(e) => {barcodeHandler(e)}}/>
+            <input className={style.inputs} data-testid='testBarcode' type='number' value={barcode} onChange={(e) => {barcodeHandler(e)}}/>
           </label>
           <label className={style.label} data-id='manufacturer'>
             Производитель:
@@ -175,7 +176,7 @@ const AddGood: FC = () => {
           </label>
         </div>
       <button className={style.submit} onClick={(e) => {submitHandler(e)}}>Сохранить</button>
-      <Link to='/admin'>
+      <Link data-testid='testLink' to='/admin'>
         <button className={style.submit}>
           Назад
         </button>

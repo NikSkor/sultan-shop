@@ -3,9 +3,10 @@ import renderer from 'react-test-renderer';
 import Mail from '../Mail/Mail.tsx';
 import letterImg from '../../../img/letter.png';
 
-afterEach(cleanup);
 
 describe('Mail.tsx', () => {
+afterEach(cleanup);
+
   test('component renders props correctly, truthy values', () => {
     const tree = renderer
       .create(

@@ -168,7 +168,7 @@ export default function Main() {
   ];
 
   return (
-    <div className={style.main}>
+    <div className={style.main} data-testid='testCatalog'>
       <div className='container'>
         <h1 className='visually-hidden'>Sultan - интернет магазин косметики</h1>
         <ul className={style.navList}>

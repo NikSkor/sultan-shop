@@ -3,26 +3,27 @@ import style from './EditPage.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { userSlice } from '../../../store/reducers/UserSlice';
+import { ICatNav, ICatalog } from '../../../interfaces/interfaces';
 
 
-interface ICatalog {
-  [index: string]: string | number | string[],
-  url: string,
-  name: string,
-  sizeType: string,
-  size: number,
-  barcode: number,
-  manufacturer: string,
-  brand: string,
-  description: string,
-  price: number,
-  type: string[]
-}
+// interface ICatalog {
+//   [index: string]: string | number | string[],
+//   url: string,
+//   name: string,
+//   sizeType: string,
+//   size: number,
+//   barcode: number,
+//   manufacturer: string,
+//   brand: string,
+//   description: string,
+//   price: number,
+//   type: string[]
+// }
 
-interface ICatNav {
-  title: string,
-  id: string
-}
+// interface ICatNav {
+//   title: string,
+//   id: string
+// }
 
 
 const EditPage: FC = () => {

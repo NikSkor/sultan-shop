@@ -10,20 +10,21 @@ import { useAppDispatch } from './hooks/redux';
 import AdminPage from './components/Pages/AdminPage';
 import EditGood from './components/Pages/EditGood';
 import AddGoodPage from './components/Pages/AddGoodPage';
+import { ICatalog } from './interfaces/interfaces';
 
-interface ICatalog {
-  [index: string]: string | number | string[],
-  url: string,
-  name: string,
-  sizeType: string,
-  size: number,
-  barcode: number,
-  manufacturer: string,
-  brand: string,
-  description: string,
-  price: number,
-  type: string[]
-}
+// interface ICatalog {
+//   [index: string]: string | number | string[],
+//   url: string,
+//   name: string,
+//   sizeType: string,
+//   size: number,
+//   barcode: number,
+//   manufacturer: string,
+//   brand: string,
+//   description: string,
+//   price: number,
+//   type: string[]
+// }
 
 
 const App = () => {

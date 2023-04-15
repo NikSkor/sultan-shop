@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuItem.tsx component renders props correctly, falsy values 1`] = `
+<li
+  className="item"
+>
+  <button
+    className="itemBtn"
+  />
+</li>
+`;
+
+exports[`MenuItem.tsx component renders props correctly, truthy values 1`] = `
+<li
+  className="item"
+>
+  <button
+    className="itemBtn"
+  >
+    name
+  </button>
+</li>
+`;
+
+exports[`MenuItem.tsx there is the button 1`] = `
+<button
+  class="itemBtn"
+/>
+`;

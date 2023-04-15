@@ -3,9 +3,9 @@ import Support from './Support';
 import renderer from 'react-test-renderer';
 import callBackImg from '../../../img/callBack.png';
 
-afterEach(cleanup);
 
 describe('test of support component', ()=> {
+  afterEach(cleanup);
   test('component renders props correctly, truthy values', () => {
     const tree = renderer
       .create(

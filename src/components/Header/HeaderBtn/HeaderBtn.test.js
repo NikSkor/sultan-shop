@@ -3,9 +3,10 @@ import renderer from 'react-test-renderer';
 import img from '../../../img/basket.svg';
 import { cleanup } from '@testing-library/react';
 
-afterEach(cleanup);
 
 describe('test of headerBtn component', () => {
+afterEach(cleanup);
+
     test('component renders props correctly, truthy values', () => {
       const tree = renderer
         .create(

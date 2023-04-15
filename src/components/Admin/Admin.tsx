@@ -4,21 +4,22 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import style from './Admin.module.scss';
 import trashImg from "../../img/delete.svg";
 import { userSlice } from '../../store/reducers/UserSlice';
+import { ICatalog } from '../../interfaces/interfaces';
 
 
-interface ICatalog {
-  [index: string]: string | number | string[],
-  url: string,
-  name: string,
-  sizeType: string,
-  size: number,
-  barcode: number,
-  manufacturer: string,
-  brand: string,
-  description: string,
-  price: number,
-  type: string[]
-}
+// interface ICatalog {
+//   [index: string]: string | number | string[],
+//   url: string,
+//   name: string,
+//   sizeType: string,
+//   size: number,
+//   barcode: number,
+//   manufacturer: string,
+//   brand: string,
+//   description: string,
+//   price: number,
+//   type: string[]
+// }
 
 
 const Admin: FC = () => {
@@ -55,17 +56,17 @@ const Admin: FC = () => {
 
   const editHandler = (e: any) => {
     e.preventDefault();
-    // console.log(e.target.dataset.id);
+
     dispatch(setEditGood(+e.target.dataset.id));
     navigate('/edit')
   }
     
   return(
-    <div className={style.page}>
+    <div className={style.page} data-testid='testAdminPage'>
       <div className='container'>
         <ul className={style.navList}>
           <li className={style.navItem}>
-            <Link to='/*'>Главная</Link>
+            <Link data-testid='testBackLink' to='/*'>Главная</Link>
             </li>
           <li className={style.navItem}>Администратор</li>
         </ul>
@@ -84,7 +85,7 @@ const Admin: FC = () => {
               </li>
           })}
         </ul>
-        <Link to='/add'>
+        <Link to='/add' data-testid='testLinkSubmit'>
           <button className={style.submit}>
             Добавить
           </button>

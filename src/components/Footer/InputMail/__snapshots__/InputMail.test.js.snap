@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test of inputMail component button mail 1`] = `
+<button
+  class="btn"
+>
+  <svg
+    fill="none"
+    height="39"
+    viewBox="0 0 39 39"
+    width="39"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      fill="#FFC85E"
+      height="39"
+      rx="19.5"
+      width="39"
+    />
+    <path
+      d="M16 24.8571L21 19.5L16 14.1429L17 12L24 19.5L17 27L16 24.8571Z"
+      fill="white"
+    />
+  </svg>
+</button>
+`;
+
+exports[`test of inputMail component telephone 1`] = `
+<input
+  class="searchInput"
+  placeholder="Введите ваш E-mail"
+  type="text"
+/>
+`;

@@ -48,6 +48,7 @@ const SortForm: FC = () => {
         <div className={style.price}>Цена<p className={style.currency}>₸</p></div>
         <div className={style.priceRangeBlock}>
           <input 
+            data-testid = 'testNumberFrom'
             type="number" 
             className={style.inputNumber}
             value = {minPriceInput}
@@ -57,6 +58,7 @@ const SortForm: FC = () => {
             />
           <p className={style.simbol}>-</p>
           <input 
+            data-testid = 'testNumberTo'
             type="number" 
             className={style.inputNumber}
             value = {maxPriceInput}

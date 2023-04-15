@@ -10,6 +10,8 @@ const AdminPage: FC = () => {
       left: 0,
       behavior: 'smooth',
     });
+
+
     
   return (
     <>

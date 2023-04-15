@@ -2,9 +2,10 @@ import { cleanup } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import Adress from '../Adress/Adress.tsx';
 
-afterEach(cleanup);
 
   describe('Adress.tsx', () => {
+  afterEach(cleanup);
+
     test('component renders props correctly, truthy values', () => {
       const tree = renderer
         .create(
