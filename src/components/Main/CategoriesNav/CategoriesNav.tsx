@@ -4,14 +4,6 @@ import { userSlice } from '../../../store/reducers/UserSlice';
 import style from './CategoriesNav.module.scss';
 import { ICategories } from '../../../interfaces/interfaces';
 
-// interface ICatNav {
-//   title: string,
-//   id: string
-// }
-
-// interface ICategories {
-//   options: ICatNav[]
-// }
 
 const CategoriesNav: FC<ICategories> = ({options}) => {
 

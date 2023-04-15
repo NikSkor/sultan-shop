@@ -6,23 +6,6 @@ import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { userSlice } from '../../../store/reducers/UserSlice';
 import { ICart, ICatalog } from '../../../interfaces/interfaces';
 
-// interface ICart {
-//   code: number,
-//   count: number
-// }
-
-// interface ICatalog {
-//   url: string,
-//   name: string,
-//   sizeType: string,
-//   size: number,
-//   barcode: number,
-//   manufacturer: string,
-//   brand: string,
-//   description: string,
-//   price: number,
-//   type: string[]
-// }
 
 const InCart: FC = () => {
   const cart = useAppSelector(state => state.userReducer.cart);

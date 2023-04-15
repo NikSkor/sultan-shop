@@ -1,24 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import { ICatalog, ICatNav } from '../../interfaces/interfaces';
 
-// interface ICatalog {
-//   [index: string]: string | number | string[],
-//   url: string,
-//   name: string,
-//   sizeType: string,
-//   size: number,
-//   barcode: number,
-//   manufacturer: string,
-//   brand: string,
-//   description: string,
-//   price: number,
-//   type: string[]
-// }
-// interface ICatNav {
-//   title: string,
-//   id: string
-// }
-
 interface UserState {
   catalog: ICatalog[],
   brandArr: string[],

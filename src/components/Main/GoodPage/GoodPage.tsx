@@ -12,19 +12,7 @@ import { ICatalog } from '../../../interfaces/interfaces';
 
 
 
-// interface ICatalog {
-//   [index: string]: string | number | string[],
-//   url: string,
-//   name: string,
-//   sizeType: string,
-//   size: number,
-//   barcode: number,
-//   manufacturer: string,
-//   brand: string,
-//   description: string,
-//   price: number,
-//   type: string[]
-// }
+
 
 const GoodPage: FC = () => {
 

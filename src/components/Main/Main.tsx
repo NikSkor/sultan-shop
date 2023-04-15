@@ -9,29 +9,11 @@ import Pagination from './Pagination/Pagination';
 import { useAppSelector } from '../../hooks/redux';
 import { ICatNav, ICatalog } from '../../interfaces/interfaces';
 
-// interface ICatalog {
-//   [index: string]: string | number | string[],
-//   url: string,
-//   name: string,
-//   sizeType: string,
-//   size: number,
-//   barcode: number,
-//   manufacturer: string,
-//   brand: string,
-//   description: string,
-//   price: number,
-//   type: string[]
-// }
 
 interface ISelectors {
   title: string,
   value: string
 }
-
-// interface ICatNav {
-//   title: string,
-//   id: string
-// }
 
 export default function Main() {
   const pageNumber = useAppSelector(state => state.userReducer.page);

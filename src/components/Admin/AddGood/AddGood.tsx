@@ -6,26 +6,6 @@ import { userSlice } from '../../../store/reducers/UserSlice';
 import { ICatNav, ICatalog } from '../../../interfaces/interfaces';
 
 
-// interface ICatalog {
-//   [index: string]: string | number | string[],
-//   url: string,
-//   name: string,
-//   sizeType: string,
-//   size: number,
-//   barcode: number,
-//   manufacturer: string,
-//   brand: string,
-//   description: string,
-//   price: number,
-//   type: string[]
-// }
-
-// interface ICatNav {
-//   title: string,
-//   id: string
-// }
-
-
 const AddGood: FC = () => {
 
   const catalogBase = useAppSelector(state => state.userReducer.catalog);
